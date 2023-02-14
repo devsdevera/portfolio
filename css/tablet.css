@@ -712,16 +712,14 @@ p {
 
 .poster-one  { 
     grid-row: 1 / span all; 
-    grid-column: 48 / span 5; 
+    grid-column: 48 / span 6; 
     animation: scroll 40s linear infinite;
-    box-shadow: none;
 }
 
 .poster-two  { 
     grid-row: 1 / span all; 
-    grid-column: 74 / span 5; 
+    grid-column: 74 / span 6; 
     animation: scrolltwo 40s linear infinite;
-    box-shadow: none;
 }
 
 .poster-header { 
@@ -737,19 +735,19 @@ p {
 
 @keyframes scroll {
     0% {
-        transform: rotate(-8deg) scale(5) translateY(37.5%);
+        transform: rotate(-8deg) scale(4) translateY(37.5%);
     }
     100% {
-        transform: rotate(-8deg) scale(5) translateY(-13.3%);
+        transform: rotate(-8deg) scale(4) translateY(-13.3%);
     }
   }
 
   @keyframes scrolltwo {
     0% {
-        transform: rotate(-8deg) scale(5) translateY(-37.5%);
+        transform: rotate(-8deg) scale(4) translateY(-37.5%);
     }
     100% {
-        transform: rotate(-8deg) scale(5) translateY(13.3%);
+        transform: rotate(-8deg) scale(4) translateY(13.3%);
     }
   }
 
