@@ -26,42 +26,7 @@
 //     });
 
 
-ScrollTrigger.defaults({
-    toggleActions: "restart pause resume none",
-    start: "top center",
-    // markers: {startColor: "white", endColor: "white", fontSize: "18px", indent: 10}
-});
 
-
-
-
-
-
-// HERO SECTION
-
-gsap.from(".hero-quote", {
-    opacity: 0, scale: 1, delay: 0.5,
-    xPercent: -10, yPercent: 0, duration: 1,
-    scrollTrigger : {
-        trigger: ".hero-quote",
-    },
-});
-
-gsap.from(".hero-image", {
-    opacity: 0, scale: 0.8, delay: 0,
-    xPercent: 0, yPercent: 0, duration: 0.5,
-    scrollTrigger : {
-        trigger: ".hero-quote",
-    },
-});
-
-gsap.from(".hero-box", {
-    opacity: 1,  scale: 1, delay: 0,
-    xPercent: -20, yPercent: 0, duration: 0.5,
-    scrollTrigger : {
-        trigger: ".hero-quote",
-    },
-});
 
 
 
@@ -77,6 +42,8 @@ gsap.from(".skills-header", {
     xPercent: 0, yPercent: 40, duration: 0.5,
     scrollTrigger : {
         trigger: ".skills-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -85,6 +52,8 @@ gsap.from(".skills-text", {
     xPercent: 0, yPercent: 40, duration: 0.5,
     scrollTrigger : {
         trigger: ".skills-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -93,6 +62,8 @@ gsap.from(".slider", {
     xPercent: -20, yPercent: 0, duration: 0.5,
     scrollTrigger : {
         trigger: ".skills-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -106,9 +77,11 @@ gsap.from(".slider", {
 
 gsap.from(".engineer-title", {
     opacity: 0, scale: 1, delay: 0.75,
-    xPercent: 0, yPercent: 0, duration: 2,
+    xPercent: 0, yPercent: 0, duration: 1,
     scrollTrigger : {
         trigger: ".engineer-title",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -117,6 +90,8 @@ gsap.from(".vr-image", {
     xPercent: -20, yPercent: 0, duration: 1,
     scrollTrigger : {
         trigger: ".engineer-title",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -137,32 +112,21 @@ gsap.from(".game-header", {
     xPercent: 10, yPercent: 0, duration: 0.5,
     scrollTrigger : {
         trigger: ".game-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
 gsap.from(".game-text", {
     opacity: 0, scale: 0.9, delay: 0.5,
-    xPercent: -10, yPercent: 0, duration: 0.5,
+    xPercent: 0, yPercent: -20, duration: 0.5,
     scrollTrigger : {
         trigger: ".game-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
-gsap.from(".game-video", {
-    opacity: 1, scale: 0.9, delay: 0,
-    xPercent: 10, yPercent: 0, duration: 0.5,
-    scrollTrigger : {
-        trigger: ".game-header",
-    },
-});
-
-gsap.from(".game-menu", {
-    opacity: 1, scale: 0.9, delay: 0,
-    xPercent: -10, yPercent: 0, duration: 0.5,
-    scrollTrigger : {
-        trigger: ".game-header",
-    },
-});
 
 
 
@@ -175,10 +139,12 @@ gsap.from(".game-menu", {
 // JAVA SECTION
 
 gsap.from(".java-header", {
-    opacity: 1, scale: 1, delay: 0,
-    xPercent: -100, yPercent: 0, duration: 1,
+    opacity: 1, scale: 0.9, delay: 0,
+    xPercent: -140, yPercent: 0, duration: 1,
     scrollTrigger : {
         trigger: ".java-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -186,15 +152,19 @@ gsap.from(".text", {
     opacity: 0, scale: 1, delay: 1.25,
     xPercent: -10, yPercent: 0, duration: 0.5,
     scrollTrigger : {
-        trigger: ".java-header",
+        trigger: ".text",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
 gsap.from(".numbertext", {
     opacity: 0, scale: 1, delay: 1.25,
-    xPercent: -10, yPercent: 0, duration: 0.5,
+    xPercent: -10, yPercent: 0, duration: 0.75,
     scrollTrigger : {
-        trigger: ".java-header",
+        trigger: ".text",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -202,15 +172,19 @@ gsap.from(".java-dots", {
     opacity: 0, scale: 1, delay: 0.75,
     xPercent: 0, yPercent: 30, duration: 0.5,
     scrollTrigger : {
-        trigger: ".java-header",
+        trigger: ".java-dots",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
 gsap.from(".show-image", {
-    opacity: 0, scale: 1, delay: 1.25,
+    opacity: 0, scale: 0.9, delay: 1.25,
     xPercent: 10, yPercent: 0, duration: 0.5,
     scrollTrigger : {
-        trigger: ".java-header",
+        trigger: ".show-image",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -228,6 +202,8 @@ gsap.from(".website-header", {
     xPercent: -20, yPercent: 0, duration: 0.5,
     scrollTrigger : {
         trigger: ".website-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -237,6 +213,8 @@ gsap.from(".website-right", {
     xPercent: 0, yPercent: 0, duration: 0.5,
     scrollTrigger : {
         trigger: ".website-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -245,6 +223,8 @@ gsap.from(".website-left", {
     xPercent: -20, yPercent: 0, duration: 0.5,
     scrollTrigger : {
         trigger: ".website-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -253,6 +233,8 @@ gsap.from(".website-text", {
     xPercent: 20, yPercent: 0, duration: 0.5,
     scrollTrigger : {
         trigger: ".website-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -266,10 +248,12 @@ gsap.from(".website-text", {
 // GRAPHIC SECTION
 
 gsap.from(".graphic-header", {
-    opacity: 0, scale: 1, delay: 0.5,
+    opacity: 0, scale: 0.9, delay: 0.5,
     xPercent: 20, yPercent: 0, duration: 0.5,
     scrollTrigger : {
         trigger: ".graphic-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -277,15 +261,19 @@ gsap.from(".graphic-top", {
     opacity: 1, scale: 1, delay: 0,
     xPercent: -30, yPercent: 0, duration: 0.5,
     scrollTrigger : {
-        trigger: ".graphic-header",
+        trigger: ".graphic-top",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
 gsap.from(".graphic-bottom", {
-    opacity: 1, scale: 1, delay: 0,
-    xPercent: -30, yPercent: 0, duration: 0.5,
+    opacity: 1, scale: 0.9, delay: 0,
+    xPercent: 10, yPercent: 0, duration: 0.5,
     scrollTrigger : {
-        trigger: ".graphic-header",
+        trigger: ".graphic-top",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
@@ -294,9 +282,37 @@ gsap.from(".graphic-text", {
     xPercent: 0, yPercent: 30, duration: 0.5,
     scrollTrigger : {
         trigger: ".graphic-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
+
+
+
+
+
+// POSTER SECTION
+
+gsap.from(".poster-header", {
+    opacity: 0, scale: 1, delay: 0,
+    xPercent: -20, yPercent: 0, duration: 0.5,
+    scrollTrigger : {
+        trigger: ".poster-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
+    },
+});
+
+gsap.from(".poster-text", {
+    opacity: 0, scale: 1, delay: 0,
+    xPercent: 0, yPercent: 20, duration: 0.5,
+    scrollTrigger : {
+        trigger: ".poster-text",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
+    },
+});
 
 
 
@@ -306,17 +322,48 @@ gsap.from(".graphic-text", {
 // TESTIMONIAL SECTION
 
 gsap.from(".swiper-header", {
-    opacity: 0, scale: 0.9, delay: 1,
-    xPercent: 0, yPercent: 50, duration: 0.5,
+    opacity: 0, scale: 0.9, delay: 0,
+    xPercent: 0, yPercent: 20, duration: 0.5,
     scrollTrigger : {
         trigger: ".swiper-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
 
-gsap.from(".swiper-wrapper", {
-    opacity: 1, scale: 1, delay: 0,
-    xPercent: -40, yPercent: 0, duration: 1,
+gsap.from(".swiper-text", {
+    opacity: 0, scale: 1, delay: 0,
+    xPercent: 0, yPercent: -20, duration: 0.5,
     scrollTrigger : {
-        trigger: ".swiper-wrapper",
+        trigger: ".swiper-text",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
+    },
+});
+
+
+
+
+
+
+// FOOTER SECTION
+
+gsap.from(".footer-header", {
+    opacity: 0, scale: 1, delay: 0,
+    xPercent: -10, yPercent: 0, duration: 0.5,
+    scrollTrigger : {
+        trigger: ".footer-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
+    },
+});
+
+gsap.from(".footer-button", {
+    opacity: 0, scale: 0.8, delay: 0,
+    xPercent: 10, yPercent: 0, duration: 0.5,
+    scrollTrigger : {
+        trigger: ".footer-header",
+        start: "top 75%",
+        toggleActions: "play none none reverse" // enter, 
     },
 });
