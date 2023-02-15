@@ -52,9 +52,9 @@ var c;
 
 function preload() {
   // bg = loadImage("2.png");
-  menu = loadImage("menu.png");
-  over = loadImage("over.png");
-  paused = loadImage("paused.png");
+  menu = loadImage("images/menu.png");
+  over = loadImage("images/over.png");
+  paused = loadImage("images/paused.png");
 }
 
 
