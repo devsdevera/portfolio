@@ -482,8 +482,8 @@ function barrelAim() {
     vert = sin(radian + (PI));
   } // LEFT TOP
   
-//   p.hori = hori; // p.getHori(hori);
-//   p.vert = vert; // p.getVert(vert);
+  p.hori = hori; // p.getHori(hori);
+  p.vert = vert; // p.getVert(vert);
 }
 
 
