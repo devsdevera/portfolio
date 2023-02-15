@@ -128,7 +128,7 @@ function draw() {
       else if(state == "gameplay-e") state = "dead-e";
     }
 
-    // HEALTH REGENERATION OVERTIME
+       // HEALTH REGENERATION OVERTIME
     if (Math.floor(modulo) < p.returnHealthRegen()) {
       modulo ++;
     } else {
@@ -299,7 +299,8 @@ function destroyedObjects() {
   }
 
   for (let g of dysfunctionalParticles) particles.splice(particles.indexOf(g), 1);
-  for (let b of dysfunctionalBullets) bullets.splice(bullets.indexOf(b), 1);
+  for (let b of dysfunctionalBullets) { 
+    bullets.splice(bullets.indexOf(b), 1);}
 
   dysfunctionalBullets = [];
   dysfunctionalParticles = [];
@@ -337,7 +338,7 @@ function mouseReleased() {
       state = "gameplay-e";
       p.level = 30;
       p.ePoints = 30;
-      c.showChart = true;
+      showChart = true;
     }
   } else if (state === "paused-e") {
     if (cursorX >= 370 && cursorX <= 895 && cursorY >= 449 && cursorY <= 510) state = "gameplay-e";
@@ -363,7 +364,7 @@ function mouseReleased() {
       p.level = 30;
       p.ePoints = 30;
       state = "gameplay-e";
-      c.showChart = true;
+      showChart = true;
     } else if (cursorX >= 370 && cursorX <= 895 && cursorY >= 537 && cursorY <= 599) state = "menu";
   }
   else if (state === "gameplay-e" || state === "gameplay-j"){
@@ -377,11 +378,12 @@ function mouseReleased() {
       }
   
       // SHOW AND HIDE THE UPGRADE CHART
-  
+
       if (cursorX > c.returnTabLeft() && cursorX < c.returnTabRight() && 
       cursorY > c.returnTabTop() && cursorY < c.returnTabBottom() && c.returnShowChart() == true) c.hideChart();
+
       else if (cursorX > c.returnTabLeft() && cursorX < c.returnTabRight() && 
-      cursorY > c.returnTabTop() && cursorY < c.returnTabBottom() && c.returnShowChart() == false)c.showChart(p.returnPoints());
+      cursorY > c.returnTabTop() && cursorY < c.returnTabBottom() && c.returnShowChart() == false) {c.showChart(p.returnPoints());}
   
   
       // UPGRADE THE STATS (COULD DO WHEN RELEASED)
@@ -480,8 +482,8 @@ function barrelAim() {
     vert = sin(radian + (PI));
   } // LEFT TOP
   
-  p.getHori(hori);
-  p.getVert(vert);
+  p.hori = hori; // p.getHori(hori);
+  p.vert = vert; // p.getVert(vert);
 }
 
 
@@ -503,7 +505,7 @@ function barrelAim() {
 function mousePressed() {
   // SHOOT A NEW BULLET IN DIRECTION OF BARREL
   bullets.push(new Bullet(60, p.returnX(), p.returnY(), p.returnHori(), 
-  p.returnVert(), p.returnBulletSpeed(), p.returnBulletDamage(), p.returnBulletColor(), true));
+  p.returnVert(), p.returnBulletSpeed(), p.returnBulletDamage(), p.returnBulletColor(), p.returnBulletDistance(), true));
   p.getHoriOpp(cos(acos(p.returnHori()) + PI));
   p.getVertOpp(sin(asin(p.returnVert()) + PI));
 }
@@ -612,7 +614,7 @@ class Chart {
     this.rightX = 0;
     this.topY = height * (3.0 / 4.0) - 80;
     
-    this.showChart;
+    // this.showChart;
     this.points = 0;
     
     this.chartWidth = W;
@@ -649,11 +651,11 @@ class Chart {
   incrementBodyDamage(){ this.bodyDamagePoints ++; }
   incrementMovementSpeed(){ this.movementSpeedPoints ++; }
   
-  returnShowChart() { return this.showChart; }
+  returnShowChart() { return showChart; }
   returnTabLeft() { return this.tabLeft; }
-   returnTabRight() { this.returnTabLeft() + 20; }
+   returnTabRight() { return this.returnTabLeft() + 20;}
    returnTabTop() { return  this.tabTop; }
-   returnTabBottom() { this.returnTabTop() + 100; }
+   returnTabBottom() { return this.returnTabTop() + 220; }
    returnStatLeft(){ return  this.rightX -  this.chartWidth + 20; }
    returnStatRight(){ return  this.rightX -  this.chartWidth + 20 +  this.statWidth; }
    returnStatTop(){ return  this.topY + 0; }  // MUST INSERT THE HEIGHT VALUES REPLACE 0
@@ -700,13 +702,13 @@ class Chart {
     arc(this.tabLeft + 10, this.tabTop + this.chartHeight, 20, 20, 0, PI);
     fill(0, 0, 0, 180);
     
-    if (this.showChart == true) {
+    if (showChart == true) {
       if (this.rightX < (20 + this.chartWidth)){
         this.rightX += 2 * m;
         this.tabLeft += 2 * m;
       }
     } 
-    if (this.showChart == false) {
+    if (showChart == false) {
       if (this.rightX > 0){
         this.rightX -= 2 * m;
         this.tabLeft -= 2 * m;
@@ -1053,10 +1055,10 @@ class Hexagon {
   
 class Opponent {
   
-  constructor(X, Y) {
-    this.maxHealth = 1000;
-    this.healthDecrement = 1000;
-    this.health = 1000;
+  constructor(X, Y, BS, BS2, BD, BD2, D, D2, MS, MS2, R, R2, S, S2, MH, MH2, BR, BR2, B) {
+    // this.maxHealth = 1000;
+    // this.healthDecrement = 1000;
+    // this.health = 1000;
     this.healthSubtractor = 1.0;
     this.damageTaken = 0;
     this.bulletSubtractor = 1.0;
@@ -1067,20 +1069,20 @@ class Opponent {
     this.bulletColor = color(255, 0, 0);
   
     this.bodyDamage = 20.0;
-    this.movementSpeed = 1;
-    this.bulletSpeed = 1;
+    // this.movementSpeed = 1;
+    // this.bulletSpeed = 1;
     this.bulletDamage = 10.0;
-    this.bulletDistance = 50;
-    this.bulletReload = 0.4;
-    this.range = 300;
-    this.sight = 500;
+    // this.bulletDistance = 50;
+    // this.bulletReload = 0.4;
+    // this.range = 300;
+    // this.sight = 500;
   
-    this.barrels = 1;
+    // this.barrels = 1;
   
     this.fireRate = 0;
   
-    this.startX = X;
-    this.startY = Y;
+    // this.startX = X;
+    // this.startY = Y;
     this.dist = 0;
   
     this.hori = cos(0);
@@ -1088,7 +1090,8 @@ class Opponent {
   
     this.shove = false;
     this.showHealthBar = false;
-    this.showChart = false;
+
+    // this.showChart = false;
     this.inRange = false;
   
     this.a = 0; 
@@ -1113,55 +1116,54 @@ class Opponent {
   
     this.c = new Chart();
     this.bulletsHit = [];
-  
-    this.bulletSpeed += (p.level * 0.05);
-    this.bulletDamage += (p.level * 0.1);
-    this.movementSpeed += (p.level * 0.01);
-    this.range -= (p.level * 5);
-    this.sight += (p.level * 20);
-    this.maxHealth += (p.level * 100);
-    this.healthDecrement += (p.level * 100);
-    this.health += (p.level * 100);
-    this.bulletReload -= (p.level * 0.005);
-  }
-  
-  Opponent(X, Y, BS, BD, D, MS, R, S, MH, BR) {
+
     this.startX = X;
     this.startY = Y;
-    
-    this.bulletSpeed = BS + (p.level * 0.05);
-    this.bulletDamage = abs(BD + (p.level * 0.1));
-    this.bulletDistance = D;
-    this.movementSpeed = MS + (p.level * 0.01);
-    this.range = R - (p.level * 5);
-    this.sight = S + (p.level * 20);
-    this.maxHealth = MH + (p.level * 100);
-    this.healthDecrement = MH + (p.level * 100);
-    this.health = MH + (p.level * 100);
-    this.bulletReload = BR - (p.level * 0.005);
-    
-  }
-  Opponent(X, Y, BS, BS2, BD, BD2, D, D2, MS, MS2, R, R2, S, S2, MH, MH2, BR, BR2, B) {
-    this.startX = X;
-    this.startY = Y;
-    this.bulletSpeed = BS + (this.level * (((BS2 - BS) / 30)));
-    this.bulletDistance = D + (this.level * (((D2 - D) / 30)));
-    this.movementSpeed = MS + (this.level * (((MS2 - MS) / 30)));
-    this.range = R + (this.level * (((R2 - R) / 30)));
-    this.sight = S + (this.level * (((S2 - S) / 30)));
-    this.maxHealth = MH + (level * (((MH2 - MH) / 30)));
+    this.bulletSpeed = BS + (p.level * (((BS2 - BS) / 30)));
+    this.bulletDistance = D + (p.level * (((D2 - D) / 30)));
+    this.movementSpeed = MS + (p.level * (((MS2 - MS) / 30)));
+    this.range = R + (p.level * (((R2 - R) / 30)));
+    this.sight = S + (p.level * (((S2 - S) / 30)));
+    this.maxHealth = MH + (p.level * (((MH2 - MH) / 30)));
     this.healthDecrement = this.maxHealth;
     this.health = this.maxHealth;
-    this.bulletReload = BR + (this.level * (((BR2 - BR) / 30)));
+    this.bulletReload = BR + (p.level * (((BR2 - BR) / 30)));
     this.barrels = B;
+  
+    // this.bulletSpeed += (p.level * 0.05);
+    // this.bulletDamage += (p.level * 0.1);
+    // this.movementSpeed += (p.level * 0.01);
+    // this.range -= (p.level * 5);
+    // this.sight += (p.level * 20);
+    // this.maxHealth += (p.level * 100);
+    // this.healthDecrement += (p.level * 100);
+    // this.health += (p.level * 100);
+    // this.bulletReload -= (p.level * 0.005);
   }
+  
+  // Opponent(X, Y, BS, BD, D, MS, R, S, MH, BR) {
+  //   this.startX = X;
+  //   this.startY = Y;
+    
+  //   this.bulletSpeed = BS + (p.level * 0.05);
+  //   this.bulletDamage = abs(BD + (p.level * 0.1));
+  //   this.bulletDistance = D;
+  //   this.movementSpeed = MS + (p.level * 0.01);
+  //   this.range = R - (p.level * 5);
+  //   this.sight = S + (p.level * 20);
+  //   this.maxHealth = MH + (p.level * 100);
+  //   this.healthDecrement = MH + (p.level * 100);
+  //   this.health = MH + (p.level * 100);
+  //   this.bulletReload = BR - (p.level * 0.005);
+    
+  // }
   
   // Custom method for updating the variables
   
   getHori(H){this.hori = H;}
   getVert(V){this.vert = V;}
   
-  getShowChart(S){this.showChart = S; }
+  getShowChart(S){showChart = S; }
   getBullet(B){ this.bulletsHit.push(B); }
   getHealthSubtractor(V){ this.healthSubtractor = V;}
   
@@ -1215,28 +1217,28 @@ class Opponent {
           bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -(this.returnHori()), -(this.returnVert()),
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
   
-          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -jb, -kb,
+          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -this.jb, -this.kb,
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
         } else if (this.barrels == 3) {
           bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -(this.returnHori()), -(this.returnVert()),
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
   
-          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -jr, -kr,
+          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -this.jr, -this.kr,
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
   
-          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -jl, -kl,
+          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -this.jl, -this.kl,
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
         } else if (this.barrels == 4) {
-          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -jr, -kr,
+          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -this.jr, -this.kr,
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
   
-          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -jl, -kl,
+          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -this.jl, -this.kl,
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
   
-          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -jb, -kb,
+          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -this.jb, -this.kb,
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
   
-          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -jf, -kf,
+          bullets.push(new Bullet(60, this.returnXpos(), this.returnYpos(), -this.jf, -this.kf,
             this.returnBulletSpeed(), this.returnBulletDamage(), this.returnBulletColor(), this.bulletDistance, false));
         }
       }
@@ -1912,7 +1914,7 @@ class Protagonist {
   
     this.shove = false;
     this.showHealthBar = false;
-    this.showChart = false;
+    // this.showChart = false;
     this.bulletsHit = [];
   
     this.c = C;
@@ -1994,7 +1996,7 @@ class Protagonist {
   }
   
    getShowChart(S) { 
-    this.showChart = S; 
+    showChart = S; 
   }
   
    incrementXP(XP) { 
@@ -2535,30 +2537,20 @@ class Square {
 
 class Bullet {
 
-  constructor(B, X, Y, H, V, S, D, C, P) {
+  constructor(B, X, Y, H, V, S, D, C, BD, P) {
     this.bulletAngle = B;
     this.startX = X;
     this.startY = Y;
     this.hori = H;
     this.vert = V;
     this.bulletSpeed = S * m;
-    this.bulletDamage = D;
-    this.colour = C;
-    this.protagonist = P;
-  }
-
-  Bullet(B, X, Y, H, V, S, D, C, BD, P) {
-    this.bulletAngle = B;
-    this.startX = X;
-    this.startY = Y;
-    this.hori = H;
-    this.vert = V;
-    this.bulletSpeed = S * m;
+    this.bulletDistance = 0;
     this.bulletDamage = D;
     this.colour = C;
     this.protagonist = P;
     this.dist = BD;
   }
+
 
   // Custom method for updating the variables
   getHori(H) {
@@ -2600,7 +2592,8 @@ class Bullet {
   
     display() {
     if (this.returnProtagonist() == true){
-      if (this.returnBulletDistance() >= p.returnBulletDistance()) dysfunctionalBullets.push(this);
+      if (this.returnBulletDistance() >= p.returnBulletDistance()) {
+        dysfunctionalBullets.push(this)};
     }
     
     if (this.returnProtagonist() == false){
