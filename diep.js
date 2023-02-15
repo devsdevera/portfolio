@@ -112,7 +112,7 @@ function draw() {
     background(over); 
 
     fill(0); 
-    text(totalXP, width / 2, height / 2 + 20);    //totalxp global
+//     text(totalXP, width / 2, height / 2 + 20);    //totalxp global
   } else if (state == "gameplay-j" || state == "gameplay-e") {
 
     background(255);
@@ -482,8 +482,8 @@ function barrelAim() {
     vert = sin(radian + (PI));
   } // LEFT TOP
   
-  p.hori = hori; // p.getHori(hori);
-  p.vert = vert; // p.getVert(vert);
+//   p.hori = hori; // p.getHori(hori);
+//   p.vert = vert; // p.getVert(vert);
 }
 
 
