@@ -594,7 +594,12 @@ p {
     color: white;
 }
 
-.blue-image {
+.blue {
+    display: none;
+}
+
+.blue-one {
+    display: block;
     width: 150%;
 }
 
