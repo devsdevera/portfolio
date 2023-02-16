@@ -565,6 +565,7 @@ p {
     width: 60vw;
 }
 
+
 .designer h1 {
     position: absolute;
     width: 50vw;
@@ -574,9 +575,10 @@ p {
     color: white;
 }
 
-.blue-image {
-    width: 150%;
+.blue {
+    object-fit: contain;
 }
+
 
 
 
