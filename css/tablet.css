@@ -579,8 +579,8 @@ p {
     color: white;
 }
 
-.blue-image {
-    width: 30%;
+.blue {
+    object-fit: contain;
 }
 
 
