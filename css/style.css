@@ -728,7 +728,7 @@ p {
 
 .poster-text { 
     grid-row: 55 / span 25; 
-    grid-column: 12 / span 19; 
+    grid-column: 12 / span 22; 
     z-index: 10;
 }
 
