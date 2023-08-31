@@ -12,13 +12,3 @@ btn.addEventListener('click', function () {
         behavior: 'smooth'
     });
 });
-
-// Add an event listener to the button
-document.querySelector('a[href="#about"]').addEventListener('click', function (event) {
-// Use the smooth scroll behavior to smoothly scroll to the top of the page
-    window.scroll({
-        top: 1640,
-        left: 0,
-        behavior: 'smooth'
-    });
-});
