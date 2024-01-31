@@ -333,37 +333,37 @@ function mouseReleased() {
 
   // FSM STATE TRANSITIONS FROM MOUSE RELEASED INPUTS
   if (state === "menu") {
-    if (cursorX >= (width * 0.16875) && cursorX <= (width * 0.48984375) && cursorY >= (height * 0.402083333) && cursorY <= (height * 0.839583333)) {
+    if (cursorX >= (width * 0.16) && cursorX <= (width * 0.48984375) && cursorY >= (height * 0.40) && cursorY <= (height * 0.839583333)) {
       state = "gameplay-j";
     }
 
-    if (cursorX >= 647 && cursorX <= 1056 && cursorY >= 226 && cursorY <= 619) {
+    if (cursorX >= (width * 0.52) && cursorX <= (width * 0.84453125) && cursorY >= (height * 0.402083333) && cursorY <= (height * 0.839583333)) {
       state = "gameplay-e";
       p.level = 30;
       p.ePoints = 30;
       showChart = true;
     }
   } else if (state === "paused-e") {
-    if (cursorX >= 370 && cursorX <= 895 && cursorY >= 449 && cursorY <= 510) state = "gameplay-e";
-    else if (cursorX >= 370 && cursorX <= 895 && cursorY >= 537 && cursorY <= 599) {
+    if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) state = "gameplay-e";
+    else if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) {
       state = "menu";
       admin();
     }
   } else if (state === "paused-j") {
-    if (cursorX >= 370 && cursorX <= 895 && cursorY >= 449 && cursorY <= 510) state = "gameplay-j";
-    else if (cursorX >= 370 && cursorX <= 895 && cursorY >= 537 && cursorY <= 599) {
+    if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) state = "gameplay-j";
+    else if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) {
       state = "menu";
       admin();
     }
   } else if (state === "dead-j") {
     admin();
 
-    if (cursorX >= 370 && cursorX <= 895 && cursorY >= 449 && cursorY <= 510) state = "gameplay-j";
-    else if (cursorX >= 370 && cursorX <= 895 && cursorY >= 537 && cursorY <= 599) state = "menu";
+    if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) state = "gameplay-j";
+    else if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) state = "menu";
   } else if (state === "dead-e") {
     admin();
 
-    if (cursorX >= 370 && cursorX <= 895 && cursorY >= 449 && cursorY <= 510) {
+    if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) {
       p.level = 30;
       p.ePoints = 30;
       state = "gameplay-e";
