@@ -621,7 +621,7 @@ class Chart {
     this.points = 0;
     
     this.chartWidth = W;
-    this.chartHeight = H;
+    this.chartHeight = H - 30;
     this.statHeight = H / 8.0;
     this.statWidth = W - 60;
     
