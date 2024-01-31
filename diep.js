@@ -622,7 +622,7 @@ class Chart {
     
     this.chartWidth = W;
     this.chartHeight = H + 100;
-    this.statHeight = H / 6.0;
+    this.statHeight = H / 8.0;
     this.statWidth = W - 60;
     
     this.maxHealthPoints = 1;
