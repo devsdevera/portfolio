@@ -615,14 +615,14 @@ class Chart {
   
   constructor(W, H) {
     this.rightX = 0;
-    this.topY = height * (3.0 / 4.0) - 80;
+    this.topY = height * (3.0 / 4.0);
     
     // this.showChart;
     this.points = 0;
     
     this.chartWidth = W;
     this.chartHeight = H + 100;
-    this.statHeight = H / 8.0;
+    this.statHeight = H / 8.5;
     this.statWidth = W - 60;
     
     this.maxHealthPoints = 1;
