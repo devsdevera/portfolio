@@ -3,8 +3,10 @@ let menu;
 let over;
 let paused;
 
-var width = 1260;
-var height = 720;
+var winWidth = window.innerWidth * 0.9;
+
+var width = winWidth;
+var height = winWidth / (16.0 / 9.0);
 
 var time = 0;
 var totalXP;
