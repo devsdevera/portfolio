@@ -621,8 +621,8 @@ class Chart {
     this.points = 0;
     
     this.chartWidth = W;
-    this.chartHeight = H + 100;
-    this.statHeight = H / 9.0;
+    this.chartHeight = H + 50;
+    this.statHeight = H / 8.0;
     this.statWidth = W - 60;
     
     this.maxHealthPoints = 1;
