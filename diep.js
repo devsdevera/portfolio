@@ -84,7 +84,7 @@ function admin() {
 function setup() {
   if (m > 1) m -= 1; // special 240 fps condition
 
-  createCanvas(1260, 720);
+  createCanvas(width, 720);
   frameRate(frameR);
   noStroke();
   ellipseMode(CENTER);
