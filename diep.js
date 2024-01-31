@@ -333,7 +333,7 @@ function mouseReleased() {
 
   // FSM STATE TRANSITIONS FROM MOUSE RELEASED INPUTS
   if (state === "menu") {
-    if (cursorX >= 195 && cursorX <= 604 && cursorY >= 226 && cursorY <= 619) {
+    if (cursorX >= (width * 0.16875) && cursorX <= (width * 0.48984375) && cursorY >= (height * 0.402083333) && cursorY <= (height * 0.839583333)) {
       state = "gameplay-j";
     }
 
@@ -621,7 +621,7 @@ class Chart {
     this.points = 0;
     
     this.chartWidth = W;
-    this.chartHeight = H - 30;
+    this.chartHeight = H - 50;
     this.statHeight = H / 8.0;
     this.statWidth = W - 60;
     
