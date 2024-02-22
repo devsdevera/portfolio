@@ -2,7 +2,7 @@ class Chart {
   
     constructor(W, H) {
       this.rightX = 0;
-      this.topY = height * (3.0 / 4.0);
+      this.topY = height * (1.0 / 5.0);
       
       // this.showChart;
       this.points = 0;
