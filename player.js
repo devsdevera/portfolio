@@ -362,16 +362,16 @@ class Protagonist {
     
       // DRAW HOW MUCH EXP PLAYER HAS RELATIVE TO LEVEL BAR LENGTH
       if (this.xpIncrement < this.xp) {
-        ellipse(width / 2 - 105, (height * 0.15) - 45 + 10, 20, 20);
+        ellipse(width / 2 - 105, (height * 0.15) + 10, 20, 20);
         rect(
           width / 2 - 105,
-          (height * 0.15) - 45,
+          (height * 0.15),
           200.0 * (this.xpIncrement / this.levelRequirements),
           20
         );
         ellipse(
           width / 2 - 105 + 200.0 * (this.xpIncrement / this.levelRequirements),
-          (height * 0.15) - 45 + 10,
+          (height * 0.15) + 10,
           20,
           20
         );
@@ -379,10 +379,10 @@ class Protagonist {
         this.xpIncrement += this.xpAdder * m; // SOOO CLEAN!!
       } else {
         rect(width / 2 - 105, (height * 0.15) - 45, 200.0 * (this.xp / this.levelRequirements), 20);
-        ellipse(width / 2 - 105, (height * 0.15) - 45 + 10, 20, 20);
+        ellipse(width / 2 - 105, (height * 0.15) + 10, 20, 20);
         ellipse(
           width / 2 - 105 + 200.0 * (this.xp / this.levelRequirements),
-          (height * 0.15) - 45 + 10,
+          (height * 0.15) + 10,
           20,
           20
         );
