@@ -1,4 +1,4 @@
-wclass Protagonist {
+class Protagonist {
   
     constructor(X, Y, C) {
       this.barrel = 20;
