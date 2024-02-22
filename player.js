@@ -1,4 +1,4 @@
-class Protagonist {
+wclass Protagonist {
   
     constructor(X, Y, C) {
       this.barrel = 20;
@@ -340,7 +340,7 @@ class Protagonist {
       }
       
       fill(50, 50, 50, 200);
-      rect(width / 2 - 105, (height * 0.15) - (height / 38.8), 210, 30); // BAR OUTLINE
+      rect(width / 2 - 105, (height * 0.15) - (height / 28.8), 210, 30); // BAR OUTLINE
       arc(width / 2 - 105, (height * 0.15) - (height / 41.14), 30, 30, HALF_PI, PI + HALF_PI);
       arc(width / 2 + 105, (height * 0.15) - (height / 41.14), 30, 30, -HALF_PI, HALF_PI);
     
