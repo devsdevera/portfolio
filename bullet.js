@@ -73,10 +73,12 @@ class Bullet {
             
             s.damaged(this.bulletDamage, this.returnHori(), this.returnVert(), this.protagonist);
             particles.push(new Particle(s.returnXpos() + 15, s.returnYpos() + 15, s.returnColor(), 2));
-            if (s.returnHealth() <= 0)if (destroyedSquares.includes(s)){} else {destroyedSquares.push(s);}
-            console.log(destroyedSquares);
+            if (s.returnHealth() <= 0){
+              if (destroyedSquares.includes(s)){} 
+              else {destroyedSquares.push(s);}
+              console.log(destroyedSquares);
+            }
         }
-        
     }
     
     // WHEN BULLET HITS A PENTAGON
@@ -85,10 +87,12 @@ class Bullet {
         if (sqrt(sq(this.returnXpos() - f.returnXpos()) + sq(this.returnYpos() - f.returnYpos())) <= 25 && f.returnHit() == false){ 
             f.damaged(this.bulletDamage, this.returnHori(), this.returnVert(), this.protagonist);
             particles.push(new Particle(f.returnXpos(), f.returnYpos(), f.returnColor(), 2));
-            if (f.returnHealth() <= 0){if (destroyedPentagons.includes(f)){} else {destroyedPentagons.push(f);}}
-            console.log(destroyedPentagons);
+            if (f.returnHealth() <= 0){
+              if (destroyedPentagons.includes(f)){} 
+              else {destroyedPentagons.push(f);}
+              console.log(destroyedPentagons);
+            }
         }
-        
     }
     
     // WHEN BULLET HITS A HEXAGON
@@ -97,10 +101,12 @@ class Bullet {
         if (sqrt(sq(this.returnXpos() - h.returnXpos()) + sq(this.returnYpos() - h.returnYpos())) <= 25 && h.returnHit() == false){ 
             h.damaged(this.bulletDamage, this.returnHori(), this.returnVert(), this.protagonist);
             particles.push(new Particle(h.returnXpos(), h.returnYpos(), h.returnColor(), 2));
-            if (h.returnHealth() <= 0)if (destroyedHexagons.includes(h)){} else {destroyedHexagons.push(h);}
-            console.log(destroyedHexagons);
+            if (h.returnHealth() <= 0){
+              if (destroyedHexagons.includes(h)){} 
+              else {destroyedHexagons.push(h);}
+              console.log(destroyedHexagons);
+            }
         }
-        
     }
     
     // WHEN BULLET HITS AN OPPONENT
