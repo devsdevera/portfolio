@@ -86,7 +86,7 @@ function admin() {
 function setup() {
   if (m > 1) m -= 1; // special 240 fps condition
 
-  var winWidth = window.innerWidth * 0.9;
+  var winWidth = window.innerWidth;
   createCanvas(winWidth, winWidth / (16.0 / 9.0));
   frameRate(frameR);
   noStroke();
