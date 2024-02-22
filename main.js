@@ -202,10 +202,6 @@ function draw() {
   }
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowWidth * (16 / 9);
-}
-
 
 
 function shapeGenerator() {
