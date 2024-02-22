@@ -203,7 +203,7 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth, windowWidth * (16 / 9);
 }
 
 
