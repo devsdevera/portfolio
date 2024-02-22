@@ -84,7 +84,7 @@ class Bullet {
             f.damaged(this.bulletDamage, this.returnHori(), this.returnVert(), this.protagonist);
             particles.push(new Particle(f.returnXpos(), f.returnYpos(), f.returnColor(), 2));
         }
-        if (f.returnHealth() <= 0)if (destroyedPentagons.includes(f)){} else {destroyedPentagons.push(f);}
+        if (f.returnHealth() <= 0){if (destroyedPentagons.includes(f)){} else {destroyedPentagons.push(f);}}
     }
     
     // WHEN BULLET HITS A HEXAGON
