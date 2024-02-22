@@ -54,7 +54,7 @@ var c;
 
 function preload() {
   // bg = loadImage("2.png");
-  menu = loadImage("images/menu.png");
+  menu = loadImage("images/menu2x.png");
   over = loadImage("images/over.png");
   paused = loadImage("images/paused.png");
 }
