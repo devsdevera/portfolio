@@ -84,8 +84,9 @@ class Bullet {
         if (sqrt(sq(this.returnXpos() - f.returnXpos()) + sq(this.returnYpos() - f.returnYpos())) <= 25 && f.returnHit() == false){ 
             f.damaged(this.bulletDamage, this.returnHori(), this.returnVert(), this.protagonist);
             particles.push(new Particle(f.returnXpos(), f.returnYpos(), f.returnColor(), 2));
+          if (f.returnHealth() <= 0){if (destroyedPentagons.includes(f)){} else {destroyedPentagons.push(f);}}
         }
-        if (f.returnHealth() <= 0){if (destroyedPentagons.includes(f)){} else {destroyedPentagons.push(f);}}
+        
     }
     
     // WHEN BULLET HITS A HEXAGON
@@ -94,8 +95,9 @@ class Bullet {
         if (sqrt(sq(this.returnXpos() - h.returnXpos()) + sq(this.returnYpos() - h.returnYpos())) <= 25 && h.returnHit() == false){ 
             h.damaged(this.bulletDamage, this.returnHori(), this.returnVert(), this.protagonist);
             particles.push(new Particle(h.returnXpos(), h.returnYpos(), h.returnColor(), 2));
+          if (h.returnHealth() <= 0)if (destroyedHexagons.includes(h)){} else {destroyedHexagons.push(h);}
         }
-        if (h.returnHealth() <= 0)if (destroyedHexagons.includes(h)){} else {destroyedHexagons.push(h);}
+        
     }
     
     // WHEN BULLET HITS AN OPPONENT
