@@ -340,9 +340,9 @@ class Protagonist {
       }
       
       fill(50, 50, 50, 200);
-      rect(width / 2 - 105, (height * 0.15), 210, 30); // BAR OUTLINE
-      arc(width / 2 - 105, (height * 0.15), 30, 30, HALF_PI, PI + HALF_PI);
-      arc(width / 2 + 105, (height * 0.15), 30, 30, -HALF_PI, HALF_PI);
+      rect(width / 2 - 105, (height * 0.05) - 50, 210, 30); // BAR OUTLINE
+      arc(width / 2 - 105, (height * 0.05) - 50 + 15, 30, 30, HALF_PI, PI + HALF_PI);
+      arc(width / 2 + 105, (height * 0.05) - 50 + 15, 30, 30, -HALF_PI, HALF_PI);
     
       textSize(30);
       textAlign(CENTER);
@@ -350,39 +350,39 @@ class Protagonist {
       // DRAW THE LEVEL TEXT
       for (let x = -4; x < 4; x++) {
         for (let y = -4; y < 4; y++) {
-          text("LEVEL  " + this.level, (width / 2) + x, (height * 0.1) + y);
+          text("LEVEL  " + this.level, (width / 2) + x, (height * 0.05) - 60 + y);
         }
       }
       fill(255);
       for (let x = -2; x < 2; x++) {
         for (let y = -2; y < 2; y++) {
-          text("LEVEL  " + this.level, (width / 2) + x, (height * 0.1) + y);
+          text("LEVEL  " + this.level, (width / 2) + x, (height * 0.05) - 60 + y);
         }
       }
     
       // DRAW HOW MUCH EXP PLAYER HAS RELATIVE TO LEVEL BAR LENGTH
       if (this.xpIncrement < this.xp) {
-        ellipse(width / 2 - 105, (height * 0.15), 20, 20);
+        ellipse(width / 2 - 105, (height * 0.05) - 45 + 10, 20, 20);
         rect(
           width / 2 - 105,
-          (height * 0.15),
+          (height * 0.05) - 45,
           200.0 * (this.xpIncrement / this.levelRequirements),
           20
         );
         ellipse(
           width / 2 - 105 + 200.0 * (this.xpIncrement / this.levelRequirements),
-          (height * 0.15),
+          (height * 0.05) - 45 + 10,
           20,
           20
         );
     
         this.xpIncrement += this.xpAdder * m; // SOOO CLEAN!!
       } else {
-        rect(width / 2 - 105, (height * 0.15), 200.0 * (this.xp / this.levelRequirements), 20);
-        ellipse(width / 2 - 105, (height * 0.15), 20, 20);
+        rect(width / 2 - 105, (height * 0.05) - 45, 200.0 * (this.xp / this.levelRequirements), 20);
+        ellipse(width / 2 - 105, (height * 0.05) - 45 + 10, 20, 20);
         ellipse(
           width / 2 - 105 + 200.0 * (this.xp / this.levelRequirements),
-          (height * 0.15),
+          (height * 0.05) - 45 + 10,
           20,
           20
         );
