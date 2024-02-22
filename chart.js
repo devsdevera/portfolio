@@ -9,7 +9,7 @@ class Chart {
       
       this.chartWidth = W;
       this.chartHeight = H - 50;
-      this.statHeight = H / 8.0;
+      this.statHeight = H / 9.0;
       this.statWidth = W - 60;
       
       this.maxHealthPoints = 1;
