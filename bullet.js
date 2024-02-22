@@ -73,10 +73,9 @@ class Bullet {
             
             s.damaged(this.bulletDamage, this.returnHori(), this.returnVert(), this.protagonist);
             particles.push(new Particle(s.returnXpos() + 15, s.returnYpos() + 15, s.returnColor(), 2));
+            if (s.returnHealth() <= 0)if (destroyedSquares.includes(s)){} else {destroyedSquares.push(s);}
         }
-        if (s.returnHealth() <= 0){
-          destroyedSquares.push(s);
-        }
+        
     }
     
     // WHEN BULLET HITS A PENTAGON
