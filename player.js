@@ -341,8 +341,8 @@ class Protagonist {
       
       fill(50, 50, 50, 200);
       rect(width / 2 - 105, (height * 0.15), 210, 30); // BAR OUTLINE
-      arc(width / 2 - 105, (height * 0.15) - 50 + 15, 30, 30, HALF_PI, PI + HALF_PI);
-      arc(width / 2 + 105, (height * 0.15) - 50 + 15, 30, 30, -HALF_PI, HALF_PI);
+      arc(width / 2 - 105, (height * 0.15), 30, 30, HALF_PI, PI + HALF_PI);
+      arc(width / 2 + 105, (height * 0.15), 30, 30, -HALF_PI, HALF_PI);
     
       textSize(30);
       textAlign(CENTER);
@@ -365,13 +365,13 @@ class Protagonist {
         ellipse(width / 2 - 105, (height * 0.15), 20, 20);
         rect(
           width / 2 - 105,
-          (height * 0.1),
+          (height * 0.15),
           200.0 * (this.xpIncrement / this.levelRequirements),
           20
         );
         ellipse(
           width / 2 - 105 + 200.0 * (this.xpIncrement / this.levelRequirements),
-          (height * 0.1),
+          (height * 0.15),
           20,
           20
         );
