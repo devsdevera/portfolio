@@ -101,7 +101,6 @@ function setup() {
 }
 
 function draw() {
-  console.log(destroyedSquares);
   if (state == "menu") {
 
     background(menu);
