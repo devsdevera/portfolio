@@ -18,7 +18,7 @@ var opponentCount = 0;
 
 // Adjust the frameRate Accordingly to match computer
 
-var frameR = 60;
+var frameR = 240;
 var m = 1.0 / (frameR / 240.0);
 
 var radian, radianX, radianY, hori, vert;
