@@ -124,8 +124,8 @@ class Bullet {
     
     // MOVE THE BULLET IN THE ANGLE IT WAS SHOT AT
     
-    this.xpos = (window.innerWidth / 2) + this.startX + (this.hori * this.bulletAngle);
-    this.ypos = ((window.innerWidth * (16.0/9.0)) / 2)+ this.startY + (this.vert * this.bulletAngle);
+    this.xpos = (width / 2) + this.startX + (this.hori * this.bulletAngle);
+    this.ypos = (height / 2)+ this.startY + (this.vert * this.bulletAngle);
     
     fill(20);
     ellipse(this.xpos, this.ypos + 5, 20, 20);
