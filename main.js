@@ -103,6 +103,8 @@ function setup() {
 function windowResized() {
 
   winWidth = window.innerWidth;
+  width = winWidth;
+  height = winWidth / (16.0 / 9.0);
   resizeCanvas(winWidth, winWidth / (16.0 / 9.0));
 }
 
