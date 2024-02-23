@@ -3,8 +3,10 @@ let menu;
 let over;
 let paused;
 
-var width = window.innerWidth;
-var height = width / (16.0 / 9.0);
+var winWidth = window.innerWidth * 0.9;
+
+var width = winWidth;
+var height = winWidth / (16.0 / 9.0);
 
 var time = 0;
 var totalXP;
@@ -84,7 +86,8 @@ function admin() {
 function setup() {
   if (m > 1) m -= 1; // special 240 fps condition
 
-  createCanvas(width, height);
+  var winWidth = window.innerWidth;
+  createCanvas(winWidth, winWidth / (16.0 / 9.0));
   frameRate(frameR);
   noStroke();
   ellipseMode(CENTER);
@@ -99,9 +102,10 @@ function setup() {
 
 function windowResized() {
 
-  width = window.innerWidth;
-  height = width / (16.0 / 9.0);
-  resizeCanvas(width, height);
+  winWidth = window.innerWidth;
+  width = winWidth;
+  height = winWidth / (16.0 / 9.0);
+  resizeCanvas(winWidth, winWidth / (16.0 / 9.0));
 }
 
 function draw() {
