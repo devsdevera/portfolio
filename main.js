@@ -377,7 +377,7 @@ function mouseReleased() {
       p.ePoints = 30;
       state = "gameplay-e";
       showChart = true;
-    } else if (cursorX >= 370 && cursorX <= 895 && cursorY >= 537 && cursorY <= 599) state = "menu";
+    } else if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) state = "menu";
   }
   else if (state === "gameplay-e" || state === "gameplay-j"){
     if (mouseButton === LEFT) {
