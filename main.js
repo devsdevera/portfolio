@@ -100,6 +100,12 @@ function setup() {
   admin();
 }
 
+function windowResized() {
+
+  winWidth = window.innerWidth;
+  resizeCanvas(winWidth, winWidth / (16.0 / 9.0));
+}
+
 function draw() {
   if (state == "menu") {
 
