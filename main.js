@@ -106,7 +106,7 @@ function windowResized() {
   width = winWidth;
   height = winWidth / (16.0 / 9.0);
   resizeCanvas(winWidth, winWidth / (16.0 / 9.0));
-  admin();
+  p = new Protagonist(width / 2, height / 2, c);
 }
 
 function draw() {
