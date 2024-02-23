@@ -512,7 +512,7 @@ function barrelAim() {
 
 function mousePressed() {
   // SHOOT A NEW BULLET IN DIRECTION OF BARREL
-  bullets.push(new Bullet(60, p.returnXpos(), p.returnYpos(), p.returnHori(), 
+  bullets.push(new Bullet(60, p.returnX(), p.returnY(), p.returnHori(), 
   p.returnVert(), p.returnBulletSpeed(), p.returnBulletDamage(), p.returnBulletColor(), p.returnBulletDistance(), true));
   p.getHoriOpp(cos(acos(p.returnHori()) + PI));
   p.getVertOpp(sin(asin(p.returnVert()) + PI));
