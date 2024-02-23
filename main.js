@@ -108,6 +108,22 @@ function windowResized() {
   resizeCanvas(winWidth, winWidth / (16.0 / 9.0));
   p.startX = winWidth / 2;
   p.startY = height / 2;
+  for (let s of squares){
+    s.startX = winWidth / 2;
+    s.startY = height / 2;
+  }
+  for (let f of pentagons){
+    f.startX = winWidth / 2;
+    f.startY = height / 2;
+  }
+  for (let h of hexagons){
+    h.startX = winWidth / 2;
+    h.startY = height / 2;
+  }
+  for (let o of opponents){
+    o.startX = winWidth / 2;
+    o.startY = height / 2;
+  }
 }
 
 function draw() {
