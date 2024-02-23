@@ -106,6 +106,7 @@ function windowResized() {
   width = winWidth;
   height = winWidth / (16.0 / 9.0);
   resizeCanvas(winWidth, winWidth / (16.0 / 9.0));
+  admin();
 }
 
 function draw() {
