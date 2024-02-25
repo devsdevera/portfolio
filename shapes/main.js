@@ -170,35 +170,102 @@ function upgradeStats(n) {
 function mouseReleased() {
   cursorX = mouseX;
   cursorY = mouseY;
+
+  // FSM STATE TRANSITIONS FROM MOUSE RELEASED INPUTS
   if (state === "menu") {
-    if (cursorX >= (width * 0.16) && cursorX <= (width * 0.48984375) && cursorY >= (height * 0.40) && cursorY <= (height * 0.839583333)) state = "gameplay-j";
+    if (cursorX >= (width * 0.16) && cursorX <= (width * 0.48984375) && cursorY >= (height * 0.40) && cursorY <= (height * 0.839583333)) {
+      state = "gameplay-j";
+    }
+
     if (cursorX >= (width * 0.52) && cursorX <= (width * 0.84453125) && cursorY >= (height * 0.402083333) && cursorY <= (height * 0.839583333)) {
       state = "gameplay-e";
       p.level = 30;
       p.ePoints = 30;
       showChart = true;
     }
-  } else if ((state === "paused-e" || state === "paused-j") && cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875)) {
-    if ((state === "paused-e" && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) || (state === "paused-j" && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444))) state = state === "paused-e" ? "gameplay-e" : "gameplay-j";
-    else if ((state === "paused-e" && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) || (state === "paused-j" && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125))) {
+  } else if (state === "paused-e") {
+    if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) state = "gameplay-e";
+    else if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) {
       state = "menu";
       admin();
     }
-  } else if ((state === "dead-j" || state === "dead-e") && cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875)) {
+  } else if (state === "paused-j") {
+    if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) state = "gameplay-j";
+    else if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) {
+      state = "menu";
+      admin();
+    }
+  } else if (state === "dead-j") {
     admin();
-    if ((state === "dead-e" && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) || (state === "dead-j" && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444))) state = state === "dead-e" ? "gameplay-e" : "gameplay-j";
-    else if ((state === "dead-e" && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) || (state === "dead-j" && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125))) state = "menu";
-  } else if (state === "gameplay-e" || state === "gameplay-j") {
+
+    if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) state = "gameplay-j";
+    else if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) state = "menu";
+  } else if (state === "dead-e") {
+    admin();
+
+    if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.62) && cursorY <= (height * 0.706944444)) {
+      p.level = 30;
+      p.ePoints = 30;
+      state = "gameplay-e";
+      showChart = true;
+    } else if (cursorX >= (width * 0.30) && cursorX <= (width * 0.713671875) && cursorY >= (height * 0.74375) && cursorY <= (height * 0.83125)) state = "menu";
+  }
+  else if (state === "gameplay-e" || state === "gameplay-j"){
     if (mouseButton === LEFT) {
-      if (cursorX > c.returnTabLeft() && cursorX < c.returnTabRight() && cursorY > c.returnTabTop() && cursorY < c.returnTabBottom() && c.returnShowChart()) c.hideChart();
-      else if (cursorX > c.returnTabLeft() && cursorX < c.returnTabRight() && cursorY > c.returnTabTop() && cursorY < c.returnTabBottom() && !c.returnShowChart()) c.showChart(p.returnPoints());
-      if (upgradeStats(10) && c.returnMaxHealthPoints() < 15) { c.incrementMaxHealth(); p.incrementMaxHealth(); if (p.ePoints > 0) p.ePoints -= 1; }
-      if (upgradeStats(44) && c.returnHealthRegenPoints() < 15) { c.incrementHealthRegen(); p.incrementHealthRegen(); if (p.ePoints > 0) p.ePoints -= 1; }
-      if (upgradeStats(78) && c.returnBulletSpeedPoints() < 15) { c.incrementBulletSpeed(); p.incrementBulletSpeed(); if (p.ePoints > 0) p.ePoints -= 1; }
-      if (upgradeStats(112) && c.returnBulletDamagePoints() < 15) { c.incrementBulletDamage(); p.incrementBulletDamage(); if (p.ePoints > 0) p.ePoints -= 1; }
-      if (upgradeStats(146) && c.returnBulletDistancePoints() < 15) { c.incrementBulletDistance(); p.incrementBulletDistance(); if (p.ePoints > 0) p.ePoints -= 1; }
-      if (upgradeStats(180) && c.returnBodyDamagePoints() < 15) { c.incrementBodyDamage(); p.incrementBodyDamage(); if (p.ePoints > 0) p.ePoints -= 1; }
-      if (upgradeStats(214) && c.returnMovementSpeedPoints() < 15) { c.incrementMovementSpeed(); p.incrementMovementSpeed(); if (p.ePoints > 0) p.ePoints -= 1; }
+  
+      if (state === "gameplay-e"){
+        if (cursorX >= 0 && cursorX <= 50 && cursorY >= 0 && cursorY <= 50) state = "paused-e";
+      }
+      if (state === "gameplay-j"){
+        if (cursorX >= 0 && cursorX <= 50 && cursorY >= 0 && cursorY <= 50) state = "paused-j";
+      }
+  
+      // SHOW AND HIDE THE UPGRADE CHART
+
+      if (cursorX > c.returnTabLeft() && cursorX < c.returnTabRight() && 
+      cursorY > c.returnTabTop() && cursorY < c.returnTabBottom() && c.returnShowChart() == true) c.hideChart();
+
+      else if (cursorX > c.returnTabLeft() && cursorX < c.returnTabRight() && 
+      cursorY > c.returnTabTop() && cursorY < c.returnTabBottom() && c.returnShowChart() == false) {c.showChart(p.returnPoints());}
+  
+  
+      // UPGRADE THE STATS (COULD DO WHEN RELEASED)
+  
+      if (upgradeStats(10) && c.returnMaxHealthPoints() < 15){
+        c.incrementMaxHealth();
+        p.incrementMaxHealth();
+        if (state === "gameplay-e" && p.ePoints > 0) p.ePoints -= 1;
+      }
+      if (upgradeStats(44) && c.returnHealthRegenPoints() < 15){
+        c.incrementHealthRegen();
+        p.incrementHealthRegen();
+        if (state === "gameplay-e" && p.ePoints > 0) p.ePoints -= 1;
+      }
+      if (upgradeStats(78) && c.returnBulletSpeedPoints() < 15){
+        c.incrementBulletSpeed();
+        p.incrementBulletSpeed();
+        if (state === "gameplay-e" && p.ePoints > 0) p.ePoints -= 1;
+      }
+      if (upgradeStats(112) && c.returnBulletDamagePoints() < 15){
+        c.incrementBulletDamage();
+        p.incrementBulletDamage();
+        if (state === "gameplay-e" && p.ePoints > 0) p.ePoints -= 1;
+      }
+      if (upgradeStats(146) && c.returnBulletDistancePoints() < 15){
+        c.incrementBulletDistance();
+        p.incrementBulletDistance();
+        if (state === "gameplay-e" && p.ePoints > 0) p.ePoints -= 1;
+      }
+      if (upgradeStats(180) && c.returnBodyDamagePoints() < 15){
+        c.incrementBodyDamage();
+        p.incrementBodyDamage();
+        if (state === "gameplay-e" && p.ePoints > 0) p.ePoints -= 1;
+      }
+      if (upgradeStats(214) && c.returnMovementSpeedPoints() < 15){
+        c.incrementMovementSpeed();
+        p.incrementMovementSpeed();
+        if (state === "gameplay-e" && p.ePoints > 0) p.ePoints -= 1;
+      }
     }
   }
 }
