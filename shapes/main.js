@@ -1,5 +1,5 @@
 let menu, over, paused;
-let winWidth = window.innerWidth * 0.9;
+let winWidth = window.innerWidth;
 let width = winWidth;
 let height = winWidth / (16.0 / 9.0);
 let time = 0, totalXP, up = false, down = false, left = false, right = false, opponentCount = 0;
