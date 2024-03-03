@@ -126,6 +126,6 @@ class Background {
   // Custom methods for drawing the object
   display() {
     // wrapping images for both forward and back player movement.
-    image(this.background, 0, height / 2, img.width / 2, img.height / 2);
+    image(this.background, 0, 0, windowWidth, windowHeight);
   }
 }
