@@ -116,7 +116,6 @@ class Background {
     this.background = B;
     this.depth = Z;
     this.bWidth = B.width;
-    this.background.resize(windowWidth * 2, windowHeight);
   }
 
   // Custom method for updating the variables
@@ -127,6 +126,6 @@ class Background {
   // Custom methods for drawing the object
   display() {
     // wrapping images for both forward and back player movement.
-    image(this.background, 0, 0);
+    image(this.background, 0, height / 2, img.width / 2, img.height / 2);
   }
 }
