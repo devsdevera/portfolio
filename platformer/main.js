@@ -127,30 +127,6 @@ class Background {
   // Custom methods for drawing the object
   display() {
     // wrapping images for both forward and back player movement.
-    image(
-      this.background,
-      this.world2ScreenX(this.bWidth * (cameraX / this.bWidth), this.depth) - this.bWidth * 2,
-      0
-    );
-    image(
-      this.background,
-      this.world2ScreenX(this.bWidth * (cameraX / this.bWidth), this.depth) - this.bWidth,
-      0
-    );
-    image(
-      this.background,
-      this.world2ScreenX(this.bWidth * (cameraX / this.bWidth), this.depth),
-      0
-    ); // z is higher for higher distance.
-    image(
-      this.background,
-      this.bWidth + this.world2ScreenX(this.bWidth * (cameraX / this.bWidth), this.depth),
-      0
-    );
-    image(
-      this.background,
-      this.bWidth * 2 + this.world2ScreenX(this.bWidth * (cameraX / this.bWidth), this.depth),
-      0
-    );
+    image(this.background, 0, 0);
   }
 }
