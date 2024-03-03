@@ -70,8 +70,8 @@ class Player {
       this.y = height - this.h;
       this.velocityY = 0;
     }
-    this.x = constrain(this.x, 100, width - this.w - 100);
-    cameraX += this.x == 100 || this.x == (width - this.w - 100) ? this.velocityX : 0;
+    this.x = constrain(this.x, 100, width / 2);
+    cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
   }
 
   show() {
