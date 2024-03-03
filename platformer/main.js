@@ -6,14 +6,14 @@ let cameraX = 0;
 
 function preload() {
   // Load the image
-  img = loadImage("images/menu2x.png");
+  img = loadImage("images/background_layer_1.png");
 }
 
 function setup() {
   createCanvas(windowWidth, windowWidth / (16 / 9));
   player = new Player();
   platforms.push(new Platform(0, height - (height / 5), width, height / 5));
-  b1 = new Background(loadImage("images/menu2x.png"), 3);
+  b1 = new Background(loadImage("images/background_layer_1.png"), 3);
 }
 
 function windowResized() {
@@ -23,6 +23,7 @@ function windowResized() {
 function draw() {
   background(200);
   handleInput();
+  b1.display();
   player.update();
   player.show();
   platforms.forEach(platform => {
@@ -30,7 +31,7 @@ function draw() {
     player.collide(platform);
   });
   text(player.distance, width/5, height/5);
-  b1.display();
+ 
 }
 
 function handleInput() {
