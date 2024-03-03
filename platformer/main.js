@@ -11,6 +11,7 @@ function setup() {
   createCanvas(windowWidth, windowWidth / (16 / 9));
   player = new Player();
   platforms.push(new Platform(0, height - (height / 5), width, height / 5));
+  let b1 = new Background(loadImage("images/menu2x.png"), 3);
 }
 
 function windowResized() {
@@ -18,7 +19,7 @@ function windowResized() {
 }
 
 function draw() {
-  Background(img);
+  background(200);
   handleInput();
   player.update();
   player.show();
@@ -27,6 +28,7 @@ function draw() {
     player.collide(platform);
   });
   text(player.distance, width/5, height/5);
+  b1.display();
 }
 
 function handleInput() {
