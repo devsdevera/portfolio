@@ -1,10 +1,16 @@
 let player;
 let platforms = [];
+let img;
+
+function preload() {
+  // Load the image
+  img = loadImage("images/menu2x.png");
+}
 
 function setup() {
   createCanvas(windowWidth, windowWidth / (16 / 9));
   player = new Player();
-  platforms.push(new Platform(0, height - 100, width, 100));
+  platforms.push(new Platform(0, height - (height / 5), width, height / 5));
 }
 
 function windowResized() {
@@ -20,21 +26,21 @@ function draw() {
     platform.show();
     player.collide(platform);
   });
+  text(player.distance, width/5, height/5);
 }
 
 function handleInput() {
-  player.stopX();
+  player.velocityX = 0;
   if (keyIsDown(87) || keyIsDown(32)) { // W key or spacebar for jump
     player.jump();
   }
   if (keyIsDown(65)) { // A key for moving left
-    player.moveLeft();
+    player.velocityX = -player.speed;
   }
   if (keyIsDown(68)) { // D key for moving right
-    player.moveRight();
+    player.velocityX = player.speed;
   }
 }
-
 
 class Player {
   constructor() {
@@ -44,15 +50,17 @@ class Player {
     this.h = 50;
     this.velocityX = 0;
     this.velocityY = 0;
-    this.gravity = 0.6;
+    this.gravity = 0.5;
     this.jumpForce = -15;
     this.isOnGround = false;
     this.speed = 10;
+    this.distance = 0;
   }
 
   update() {
     this.y += this.velocityY;
     this.x += this.velocityX;
+    this.distance += this.velocityX;
     this.velocityY += this.gravity;
     this.isOnGround = this.y + this.h >= height;
     if (this.isOnGround) {
@@ -71,18 +79,6 @@ class Player {
     if (this.isOnGround) {
       this.velocityY = this.jumpForce;
     }
-  }
-
-  moveRight() {
-    this.velocityX = this.speed;
-  }
-
-  moveLeft() {
-    this.velocityX = -this.speed;
-  }
-
-  stopX() {
-    this.velocityX = 0;
   }
 
   collide(platform) {
