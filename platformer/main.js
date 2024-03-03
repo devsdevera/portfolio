@@ -1,6 +1,7 @@
 let player;
 let platforms = [];
 let img;
+let b1
 
 function preload() {
   // Load the image
@@ -11,7 +12,7 @@ function setup() {
   createCanvas(windowWidth, windowWidth / (16 / 9));
   player = new Player();
   platforms.push(new Platform(0, height - (height / 5), width, height / 5));
-  let b1 = new Background(loadImage("images/menu2x.png"), 3);
+  b1 = new Background(loadImage("images/menu2x.png"), 3);
 }
 
 function windowResized() {
