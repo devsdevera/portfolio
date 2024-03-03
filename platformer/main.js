@@ -116,6 +116,7 @@ class Background {
     this.background = B;
     this.depth = Z;
     this.bWidth = B.width;
+    this.background.resize(windowWidth * 2, windowHeight);
   }
 
   // Custom method for updating the variables
