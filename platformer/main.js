@@ -1,6 +1,6 @@
 let player;
 let platforms = [];
-let b1
+let b1, b2, b3;
 let cameraX = 0;
 
 function setup() {
@@ -8,6 +8,8 @@ function setup() {
   player = new Player();
   platforms.push(new Platform(0, height - (height / 5), width, height / 5));
   b1 = new Background(loadImage("images/background_layer_1.png"), 3);
+  b2 = new Background(loadImage("images/background_layer_2.png"), 2);
+  b3 = new Background(loadImage("images/background_layer_3.png"), 1);
 }
 
 function windowResized() {
@@ -18,6 +20,8 @@ function draw() {
   background(200);
   handleInput();
   b1.display();
+  b2.display();
+  b3.display();
   player.update();
   player.show();
   platforms.forEach(platform => {
