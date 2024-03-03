@@ -27,6 +27,7 @@ function draw() {
     player.collide(platform);
   });
   text(player.distance, width/5, height/5);
+  image(img, 0, 0);
 }
 
 function handleInput() {
