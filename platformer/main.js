@@ -1,13 +1,7 @@
 let player;
 let platforms = [];
-let img;
 let b1
 let cameraX = 0;
-
-function preload() {
-  // Load the image
-  img = loadImage("images/background_layer_1.png");
-}
 
 function setup() {
   createCanvas(windowWidth, windowWidth / (16 / 9));
@@ -31,7 +25,7 @@ function draw() {
     player.collide(platform);
   });
   text(player.distance, width/5, height/5);
- 
+  text(cameraX, width/4, height/4);
 }
 
 function handleInput() {
