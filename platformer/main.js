@@ -4,7 +4,7 @@ let img;
 
 function preload() {
   // Load the image
-  img = loadImage("images/menu2x.png");
+  img = loadImage("images/background_layer_1.png");
 }
 
 function setup() {
