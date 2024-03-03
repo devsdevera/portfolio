@@ -2,6 +2,7 @@ let player;
 let platforms = [];
 let img;
 let b1
+let cameraX = 0;
 
 function preload() {
   // Load the image
@@ -71,6 +72,7 @@ class Player {
       this.velocityY = 0;
     }
     this.x = constrain(this.x, 100, width - this.w - 100);
+    cameraX += this.x == 100 || this.x == (width - this.w - 100) ? this.velocityX : 0;
   }
 
   show() {
