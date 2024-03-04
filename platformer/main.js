@@ -67,6 +67,25 @@ class Player {
 
     this.states = [];
     this.playerSheet = loadImage("images/char_blue_right.png");
+
+    this.charDiam = this.playerSheet.width / 12;
+
+    for (let i = 0; i < this.idles.length; i++)
+      this.idles[i] = this.playerSheet.get(i * this.charDiam, 0, this.charDiam, this.charDiam);
+    for (let i = 0; i < this.attackR.length; i++)
+      this.attackR[i] = this.playerSheet.get(i * this.charDiam, this.charDiam, this.charDiam, this.charDiam);
+    for (let i = 0; i < this.runR.length; i++)
+      this.runR[i] = this.playerSheet.get(i * this.charDiam, this.charDiam * 2, this.charDiam, this.charDiam);
+    for (let i = 0; i < this.jumpR.length; i++)
+      this.jumpR[i] = this.playerSheet.get(i * this.charDiam, this.charDiam * 3, this.charDiam, this.charDiam);
+    for (let i = 0; i < this.deathR.length; i++)
+      this.deathR[i] = this.playerSheet.get(i * this.charDiam, this.charDiam * 4, this.charDiam, this.charDiam);
+
+    this.states.push(this.idles);
+    this.states.push(this.runR);
+    this.states.push(this.jumpR);
+    this.states.push(this.attackR);
+    this.states.push(this.deathR);
   }
 
   update() {
@@ -84,8 +103,7 @@ class Player {
   }
 
   show() {
-    fill(255, 0, 0);
-    rect(this.x, this.y, this.w, this.h);
+    image(this.attackR[0], this.x, this.y, this.w, this.h);
   }
 
   jump() {
