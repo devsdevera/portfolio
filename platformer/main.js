@@ -103,7 +103,9 @@ class Player {
   }
 
   show() {
-    image(this.attackR[0], this.x, this.y, this.w, this.h);
+    fill(255, 0, 0);
+    rect(this.x, this.y, this.w, this.h);
+    //image(this.attackR[0], this.x, this.y, this.w, this.h);
   }
 
   jump() {
