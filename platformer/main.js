@@ -120,7 +120,7 @@ class Player {
       image(this.jumpR[int((this.jumpFrame / 5) % 10)], this.x, this.y, this.w, this.h);
       this.jumpFrame ++
     }
-    text(this.isOnGround, 100, 100);
+    text(this.directionRight, 100, 100);
   }
 
   jump() {
