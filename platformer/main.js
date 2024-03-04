@@ -112,7 +112,7 @@ class Player {
   }
 
   show() {
-    if(this.directionRight()){
+    if(this.directionRight){
       animate();
     }
   }
