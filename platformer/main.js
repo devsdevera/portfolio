@@ -13,7 +13,7 @@ function preload() {
 function setup() {
   createCanvas(windowWidth, windowWidth / (16 / 9));
   player = new Player();
-  platforms.push(new Platform(0, height - (height / 5), width, height / 5));
+  platforms.push(new Platform(0, height - (height / 10), width, height / 10));
 }
 
 function windowResized() {
@@ -101,12 +101,12 @@ class Player {
     this.distance += this.velocityX;
     this.velocityY += this.gravity;
     if (this.isOnGround) {
-      this.y = (height - (height / 5)) - this.h;
+      this.y = (height - (height / 10)) - this.h;
       this.velocityY = 0;
     }else{
       this.y += this.velocityY;
     }
-    this.isOnGround = this.y + this.h >= height - (height / 5);
+    this.isOnGround = this.y + this.h >= height - (height / 10);
     this.x = constrain(this.x, 100, width / 2);
     cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
   }
