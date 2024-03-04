@@ -118,9 +118,8 @@ class Player {
   }
 
   jump() {
-    if (this.isOnGround) {
-      this.velocityY = this.jumpForce;
-    }
+    this.velocityY = this.jumpForce;
+    this.isOnGround = false;
   }
 
   collide(platform) {
