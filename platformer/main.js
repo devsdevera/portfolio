@@ -103,7 +103,7 @@ class Player {
   }
 
   update() {
-    this.x += this.velocityX;
+    this.x += this.attack ? this.velocityX / 2 : this.velocityX;
     this.distance += this.velocityX;
     this.velocityY += this.gravity;
     if (this.isOnGround) {
