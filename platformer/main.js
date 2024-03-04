@@ -49,6 +49,11 @@ function handleInput() {
   }
 }
 
+function mouseClicked() {
+  player.attack = true;
+  player.attackFrame =  0;
+}
+
 class Player {
   constructor() {
     this.x = 10;
@@ -92,8 +97,9 @@ class Player {
 
     this.jumpFrame = 0;
     this.idleFrame = 0;
-    this.deathFrame = 0;
+    this.attackFrame = 0;
     this.directionRight = true;
+    this.attack = false;
   }
 
   update() {
@@ -114,7 +120,7 @@ class Player {
   show() {
     if (this.directionRight) {
       this.animate(1);
-    } else {
+    }else {
       push();
       translate(this.w, 0); // Translate to the right edge of the sprite.
       scale(-1, 1); // Flip horizontally.
@@ -124,13 +130,21 @@ class Player {
   }
 
   animate(axis){
-    if(this.isOnGround && this.velocityX != 0){
-      image(this.runR[int((frameCount / 5) % 8)], axis * this.x, this.y, this.w, this.h);
-    }else if(this.isOnGround && this.velocityX == 0){
-      image(this.idles[int((frameCount / 5) % 6)], axis * this.x, this.y, this.w, this.h);
+    if(this.attack){
+      image(this.attackR[int((this.attackFrame / 5) % 8)], axis * this.x, this.y, this.w, this.h);
+      this.attackFrame ++
+      if(this.attackFrame / 5) % 8 === 0){
+        this.attack = false;
+      }
     }else{
-      image(this.jumpR[int((this.jumpFrame / 5) % 10)], axis * this.x, this.y, this.w, this.h);
-      this.jumpFrame ++
+      if(this.isOnGround && this.velocityX != 0){
+        image(this.runR[int((frameCount / 5) % 8)], axis * this.x, this.y, this.w, this.h);
+      }else if(this.isOnGround && this.velocityX == 0){
+        image(this.idles[int((frameCount / 5) % 6)], axis * this.x, this.y, this.w, this.h);
+      }else{
+        image(this.jumpR[int((this.jumpFrame / 5) % 10)], axis * this.x, this.y, this.w, this.h);
+        this.jumpFrame ++
+      }
     }
   }
 
