@@ -67,7 +67,6 @@ class Player {
 
     this.states = [];
     this.playerSheet = loadImage("images/char_blue_right.png");
-
     this.charDiam = this.playerSheet.width / 12;
 
     for (let i = 0; i < this.idles.length; i++)
@@ -86,6 +85,8 @@ class Player {
     this.states.push(this.jumpR);
     this.states.push(this.attackR);
     this.states.push(this.deathR);
+
+    text(this.attackR == null, 100, 100);
   }
 
   update() {
@@ -105,7 +106,7 @@ class Player {
   show() {
     fill(255, 0, 0);
     rect(this.x, this.y, this.w, this.h);
-    //image(this.attackR[0], this.x, this.y, this.w, this.h);
+    image(this.attackR[0], 0, 0);
   }
 
   jump() {
