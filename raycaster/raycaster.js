@@ -8,7 +8,7 @@ canvas.height = window.innerWidth / 2;
 
 const mapWidth = 20; // map rows
 const mapHeight = 20; // map cols
-let mapCubeSize = canvas.height / mapWidth; // map cube width
+let mapCubeSize = (canvas.height / 2) / mapWidth; // map cube width
 let gapSize = canvas.width / 400;
 
 const mapLayout = [ // the map array. Edit to change level but keep the outer walls
