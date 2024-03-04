@@ -105,7 +105,8 @@ class Player {
   }
 
   show() {
-    image(this.attackR[(frameCount / 5) % 8], this.x, this.y, this.w, this.h);
+    image(this.attackR[0], this.x, this.y, this.w, this.h);
+    text(int((frameCount / 10) % 8), 100, 100);
   }
 
   jump() {
