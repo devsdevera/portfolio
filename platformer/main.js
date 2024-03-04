@@ -113,26 +113,25 @@ class Player {
 
   show() {
     if (this.directionRight) {
-      this.animate();
+      this.animate(1);
     } else {
       push();
       translate(this.w, 0); // Translate to the right edge of the sprite.
       scale(-1, 1); // Flip horizontally.
-      this.animate(); // Draw the flipped sprite.
+      this.animate(-1); // Draw the flipped sprite.
       pop();
     }
 }
 
-  animate(){
+  animate(int axis){
     if(this.isOnGround && this.velocityX != 0){
-      image(this.runR[int((frameCount / 5) % 8)], this.x, this.y, this.w, this.h);
+      image(this.runR[int((frameCount / 5) % 8)], axis * this.x, this.y, this.w, this.h);
     }else if(this.isOnGround && this.velocityX == 0){
-      image(this.idles[int((frameCount / 5) % 6)], this.x, this.y, this.w, this.h);
+      image(this.idles[int((frameCount / 5) % 6)], axis * this.x, this.y, this.w, this.h);
     }else{
-      image(this.jumpR[int((this.jumpFrame / 5) % 10)], this.x, this.y, this.w, this.h);
+      image(this.jumpR[int((this.jumpFrame / 5) % 10)], axis * this.x, this.y, this.w, this.h);
       this.jumpFrame ++
     }
-    text(this.directionRight, 100, 100);
   }
 
   jump() {
