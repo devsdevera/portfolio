@@ -51,7 +51,6 @@ function handleInput() {
 
 function mouseClicked() {
   player.attack = true;
-  player.attackFrame =  0;
 }
 
 class Player {
@@ -136,6 +135,7 @@ class Player {
       this.attackFrame ++
       if(int((this.attackFrame / 5) % 8) === 7){
         this.attack = false;
+        player.attackFrame =  0;
       }
     }else{
       if(this.isOnGround && this.velocityX != 0){
