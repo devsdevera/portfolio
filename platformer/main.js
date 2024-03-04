@@ -96,12 +96,11 @@ class Player {
     this.y += this.velocityY;
     this.x += this.velocityX;
     this.distance += this.velocityX;
+    this.velocityY += this.gravity;
     this.isOnGround = this.y + this.h >= height;
     if (this.isOnGround) {
       this.y = height - this.h;
       this.velocityY = 0;
-    }else{
-      this.velocityY += this.gravity;
     }
     this.x = constrain(this.x, 100, width / 2);
     cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
