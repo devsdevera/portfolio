@@ -87,6 +87,10 @@ class Player {
     this.states.push(this.jumpR);
     this.states.push(this.attackR);
     this.states.push(this.deathR);
+
+    this.jumpFrame = 0;
+    this.idleFrame = 0;
+    this.deathFrame = 0;
   }
 
   update() {
@@ -105,8 +109,15 @@ class Player {
   }
 
   show() {
-    image(this.attackR[int((frameCount / 10) % 8)], this.x, this.y, this.w, this.h);
-    text(int((frameCount / 10) % 8), 100, 100);
+    if(!this.isOnGround){
+      image(this.runR[int((frameCount / 5) % 8)], this.x, this.y, this.w, this.h);
+    }else{
+      image(this.jumpR[int((jumpFrame / 5) % 10)], this.x, this.y, this.w, this.h);
+      jumpFrame++
+      if ((jumpFrame / 5) % 10 == 0){
+        jumpFrame = 5;
+      }
+    }
   }
 
   jump() {
