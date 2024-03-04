@@ -109,7 +109,7 @@ class Player {
   }
 
   show() {
-    if(!this.isOnGround){
+    if(this.isOnGround){
       image(this.runR[int((frameCount / 5) % 8)], this.x, this.y, this.w, this.h);
     }else{
       image(this.jumpR[int((this.jumpFrame / 5) % 10)], this.x, this.y, this.w, this.h);
