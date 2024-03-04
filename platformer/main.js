@@ -117,6 +117,7 @@ class Player {
       
       if ((this.jumpFrame / 5) % 10 == 0){
         this.jumpFrame = 5;
+        this.isOnGround = true;
       }
     }
     text(this.isOnGround, 100, 100);
