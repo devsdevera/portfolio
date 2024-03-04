@@ -124,7 +124,7 @@ class Background {
 
   // Custom method for updating the variables
   world2ScreenX(x, z) {
-    return (x - cameraX) / z; // word will go to the left
+    return (x - cameraX) / (z * 2); // word will go to the left
   }
 
   // Custom methods for drawing the object
