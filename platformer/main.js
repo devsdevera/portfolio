@@ -47,16 +47,16 @@ function handleInput() {
 
 class Player {
   constructor() {
-    this.x = 50;
+    this.x = 10;
     this.y = height - 50;
-    this.w = 50;
-    this.h = 50;
+    this.w = height / 12;
+    this.h = height / 12;
     this.velocityX = 0;
     this.velocityY = 0;
-    this.gravity = 0.5;
-    this.jumpForce = -15;
+    this.gravity = height / 600;
+    this.jumpForce = -height / 30;
     this.isOnGround = false;
-    this.speed = 10;
+    this.speed = height / 70;
     this.distance = 0;
   }
 
