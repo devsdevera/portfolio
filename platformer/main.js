@@ -58,6 +58,15 @@ class Player {
     this.isOnGround = false;
     this.speed = height / 100;
     this.distance = 0;
+
+    this.idles = new Array(6);
+    this.runR = new Array(8);
+    this.jumpR = new Array(10);
+    this.attackR = new Array(8);
+    this.deathR = new Array(12);
+
+    this.states = [];
+    this.playerSheet = loadImage("images/char_blue_right.png");
   }
 
   update() {
