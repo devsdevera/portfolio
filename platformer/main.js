@@ -53,8 +53,8 @@ class Player {
   constructor() {
     this.x = 10;
     this.y = height - 50;
-    this.w = height / 5;
-    this.h = height / 5;
+    this.w = height / 3;
+    this.h = height / 3;
     this.velocityX = 0;
     this.velocityY = 0;
     this.gravity = height / 600;
