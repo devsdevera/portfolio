@@ -112,16 +112,16 @@ class Player {
   }
 
   show() {
-    if(this.directionRight){
-      this.animate();
-    }else{
-      push();
-      translate(this.charDiam, 0); // width and x position.
-      scale(-1, 1);
-      this.animate(); // very important! the xpos of the reflected must be -xpos.
-      pop();
+    if (this.directionRight) {
+        this.animate();
+    } else {
+        push();
+        translate(this.x + this.w, this.y); // Translate to the right edge of the sprite.
+        scale(-1, 1); // Flip horizontally.
+        this.animate(); // Draw the flipped sprite.
+        pop();
     }
-  }
+}
 
   animate(){
     if(this.isOnGround && this.velocityX != 0){
