@@ -109,8 +109,10 @@ class Player {
   }
 
   show() {
-    if(this.isOnGround){
+    if(this.isOnGround && this.velocityX > 0){
       image(this.runR[int((frameCount / 5) % 8)], this.x, this.y, this.w, this.h);
+    }else if(this.isOnGround && this.velocityX == 0){
+      image(this.idles[int((frameCount / 5) % 6)], this.x, this.y, this.w, this.h);
     }else{
       image(this.jumpR[int((this.jumpFrame / 5) % 10)], this.x, this.y, this.w, this.h);
       this.jumpFrame ++
