@@ -113,13 +113,13 @@ class Player {
 
   show() {
     if (this.directionRight) {
-        this.animate();
+      this.animate();
     } else {
-        push();
-        translate(this.x + this.w, this.y); // Translate to the right edge of the sprite.
-        scale(-1, 1); // Flip horizontally.
-        this.animate(); // Draw the flipped sprite.
-        pop();
+      push();
+      translate(this.w, 0); // Translate to the right edge of the sprite.
+      scale(-1, 1); // Flip horizontally.
+      this.animate(); // Draw the flipped sprite.
+      pop();
     }
 }
 
