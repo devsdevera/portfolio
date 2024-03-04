@@ -32,8 +32,6 @@ function draw() {
     platform.show();
     player.collide(platform);
   });
-  text(player.distance, width/5, height/5);
-  text(cameraX, width/4, height/4);
 }
 
 function handleInput() {
@@ -53,8 +51,8 @@ class Player {
   constructor() {
     this.x = 10;
     this.y = height - 50;
-    this.w = height / 15;
-    this.h = height / 15;
+    this.w = height / 7;
+    this.h = height / 7;
     this.velocityX = 0;
     this.velocityY = 0;
     this.gravity = height / 600;
@@ -107,9 +105,6 @@ class Player {
   }
 
   show() {
-    fill(255, 0, 0);
-    rect(this.x, this.y, this.w, this.h);
-    text(this.attackR[0] instanceof p5.Image, 100, 100);
     image(this.attackR[0], this.x, this.y, this.w, this.h);
   }
 
@@ -158,7 +153,7 @@ class Background {
 
   // Custom method for updating the variables
   world2ScreenX(x, z) {
-    return (x - cameraX) / (z * 2); // word will go to the left
+    return (x - cameraX) / z; // word will go to the left
   }
 
   // Custom methods for drawing the object
