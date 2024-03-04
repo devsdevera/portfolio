@@ -1,7 +1,7 @@
 let player;
 let platforms = [];
 let b1, b2, b3, sprites;
-let cameraX = 0;
+let cameraX;
 
 function preload() {
   b1 = new Background(loadImage("images/background_layer_1.png"), 3);
@@ -166,7 +166,7 @@ class Platform {
 
   show() {
     fill(50);
-    rect(this.x, this.y, this.w, this.h);
+    //rect(this.x, this.y, this.w, this.h);
   }
 }
 
