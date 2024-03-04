@@ -1,15 +1,19 @@
 let player;
 let platforms = [];
-let b1, b2, b3;
+let b1, b2, b3, sprites;
 let cameraX = 0;
+
+function preload() {
+  b1 = new Background(loadImage("images/background_layer_1.png"), 3);
+  b2 = new Background(loadImage("images/background_layer_2.png"), 2);
+  b3 = new Background(loadImage("images/background_layer_3.png"), 1);
+  sprites = loadImage("images/char_blue_right.png");
+}
 
 function setup() {
   createCanvas(windowWidth, windowWidth / (16 / 9));
   player = new Player();
   platforms.push(new Platform(0, height - (height / 5), width, height / 5));
-  b1 = new Background(loadImage("images/background_layer_1.png"), 3);
-  b2 = new Background(loadImage("images/background_layer_2.png"), 2);
-  b3 = new Background(loadImage("images/background_layer_3.png"), 1);
 }
 
 function windowResized() {
@@ -66,7 +70,7 @@ class Player {
     this.deathR = new Array(12);
 
     this.states = [];
-    this.playerSheet = loadImage("images/char_blue_right.png");
+    this.playerSheet = sprites;
     this.charDiam = this.playerSheet.width / 12;
 
     for (let i = 0; i < this.idles.length; i++)
@@ -85,7 +89,6 @@ class Player {
     this.states.push(this.jumpR);
     this.states.push(this.attackR);
     this.states.push(this.deathR);
-
     
   }
 
@@ -107,7 +110,7 @@ class Player {
     fill(255, 0, 0);
     rect(this.x, this.y, this.w, this.h);
     text(this.attackR[0] instanceof p5.Image, 100, 100);
-    image(this.attackR[0], 0, 0, windowWidth * 2, height);
+    image(this.attackR[0], 0, 0);
   }
 
   jump() {
