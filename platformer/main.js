@@ -96,21 +96,19 @@ class Player {
     this.y += this.velocityY;
     this.x += this.velocityX;
     this.distance += this.velocityX;
-    this.velocityY += this.gravity;
     this.isOnGround = this.y + this.h >= height;
     if (this.isOnGround) {
       this.y = height - this.h;
       this.velocityY = 0;
+    }else{
+      this.velocityY += this.gravity;
     }
     this.x = constrain(this.x, 100, width / 2);
     cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
   }
 
   show() {
-    fill(255, 0, 0);
-    rect(this.x, this.y, this.w, this.h);
-    text(this.attackR[0] instanceof p5.Image, 100, 100);
-    image(this.attackR[0], this.x, this.y, this.w, this.h);
+    image(this.attackR[0], this.x, this.y, this.w * 2, this.h * 2);
   }
 
   jump() {
