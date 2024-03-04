@@ -41,9 +41,11 @@ function handleInput() {
   }
   if (keyIsDown(65)) { // A key for moving left
     player.velocityX = -player.speed;
+    player.directionRight = false;
   }
   if (keyIsDown(68)) { // D key for moving right
     player.velocityX = player.speed;
+    player.directionRight = true;
   }
 }
 
@@ -91,6 +93,7 @@ class Player {
     this.jumpFrame = 0;
     this.idleFrame = 0;
     this.deathFrame = 0;
+    this.directionRight = true;
   }
 
   update() {
