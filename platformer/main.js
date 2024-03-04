@@ -106,7 +106,7 @@ class Player {
   show() {
     fill(255, 0, 0);
     rect(this.x, this.y, this.w, this.h);
-    text(this.attackR.length === 0, 100, 100);
+    text(this.attackR.length, 100, 100);
   }
 
   jump() {
