@@ -57,7 +57,7 @@ class Player {
     this.velocityY = 0;
     this.gravity = height / 600;
     this.jumpForce = -height / 30;
-    this.isOnGround = false;
+    this.isOnGround = true;
     this.speed = height / 100;
     this.distance = 0;
 
@@ -97,9 +97,9 @@ class Player {
     this.x += this.velocityX;
     this.distance += this.velocityX;
     this.velocityY += this.gravity;
-    this.isOnGround = this.y + this.h >= height;
+    this.isOnGround = this.y + this.h >= height - (height / 5);
     if (this.isOnGround) {
-      this.y = height - this.h;
+      this.y = (height - (height / 5)) - this.h;
       this.velocityY = 0;
     }else{
       this.y += this.velocityY;
