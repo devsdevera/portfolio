@@ -133,7 +133,7 @@ class Player {
     if(this.attack){
       image(this.attackR[int((this.attackFrame / 5) % 8)], axis * this.x, this.y, this.w, this.h);
       this.attackFrame ++
-      if(this.attackFrame / 5) % 8 === 0){
+      if((this.attackFrame / 5) % 8 === 0){
         this.attack = false;
       }
     }else{
