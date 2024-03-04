@@ -110,7 +110,7 @@ class Player {
     fill(255, 0, 0);
     rect(this.x, this.y, this.w, this.h);
     text(this.attackR[0] instanceof p5.Image, 100, 100);
-    image(this.attackR[0], 0, 0);
+    image(this.attackR[0], this.x, this.y, this.w, this.h);
   }
 
   jump() {
