@@ -112,12 +112,9 @@ class Player {
     if(this.isOnGround){
       image(this.runR[int((frameCount / 5) % 8)], this.x, this.y, this.w, this.h);
     }else{
-      image(this.jumpR[int((this.jumpFrame / 5) % 10)], this.x, this.y, this.w, this.h);
-      this.jumpFrame++
-      if ((this.jumpFrame / 5) % 10 == 0){
-        this.jumpFrame = 5;
-      }
+      image(this.attackR[int((frameCount / 5) % 8)], this.x, this.y, this.w, this.h);
     }
+    text(this.isOnGround, 100, 100);
   }
 
   jump() {
