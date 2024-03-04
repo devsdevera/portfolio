@@ -107,7 +107,7 @@ class Player {
     fill(255, 0, 0);
     rect(this.x, this.y, this.w, this.h);
     text(this.attackR[0] instanceof p5.Image, 100, 100);
-    image(this.attackR[0], this.world2ScreenX(windowWidth, this.depth) - windowWidth * 2, 0, windowWidth * 2, height);
+    image(this.attackR[0], 0, 0, windowWidth * 2, height);
   }
 
   jump() {
