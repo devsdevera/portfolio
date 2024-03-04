@@ -127,13 +127,14 @@ class Player {
       this.animate(-1); // Draw the flipped sprite.
       pop();
     }
+    text(this.attack, 100, 100);
   }
 
   animate(axis){
     if(this.attack){
       image(this.attackR[int((this.attackFrame / 5) % 8)], axis * this.x, this.y, this.w, this.h);
       this.attackFrame ++
-      if(int((this.attackFrame / 5) % 8) === 0){
+      if(int((this.attackFrame / 5) % 8) === 7){
         this.attack = false;
       }
     }else{
