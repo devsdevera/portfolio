@@ -56,7 +56,7 @@ class Player {
     this.gravity = height / 600;
     this.jumpForce = -height / 30;
     this.isOnGround = false;
-    this.speed = height / 70;
+    this.speed = height / 80;
     this.distance = 0;
   }
 
@@ -130,8 +130,8 @@ class Background {
   // Custom methods for drawing the object
   display() {
     // wrapping images for both forward and back player movement.
-    image(this.background, this.world2ScreenX(windowWidth, this.depth) - windowWidth * 2, 0, windowWidth * 2, windowHeight);
-    image(this.background, this.world2ScreenX(windowWidth, this.depth), 0, windowWidth * 2, windowHeight);
-    image(this.background, this.world2ScreenX(windowWidth, this.depth) + windowWidth * 2, 0, windowWidth * 2, windowHeight);
+    image(this.background, this.world2ScreenX(windowWidth, this.depth) - windowWidth * 2, 0, windowWidth * 2, height);
+    image(this.background, this.world2ScreenX(windowWidth, this.depth), 0, windowWidth * 2, height);
+    image(this.background, this.world2ScreenX(windowWidth, this.depth) + windowWidth * 2, 0, windowWidth * 2, height);
   }
 }
