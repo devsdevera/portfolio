@@ -86,7 +86,7 @@ class Player {
     this.states.push(this.attackR);
     this.states.push(this.deathR);
 
-    text(this.attackR == null, 100, 100);
+    
   }
 
   update() {
@@ -106,6 +106,7 @@ class Player {
   show() {
     fill(255, 0, 0);
     rect(this.x, this.y, this.w, this.h);
+    text(this.attackR == null, 100, 100);
   }
 
   jump() {
