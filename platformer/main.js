@@ -40,11 +40,11 @@ function handleInput() {
     player.jump();
   }
   if (keyIsDown(65)) { // A key for moving left
-    player.velocityX = player.attack ? -player.speed / 2 : -player.speed;
+    player.velocityX = player.attack ? -player.speed / 4 : -player.speed;
     player.directionRight = false;
   }
   if (keyIsDown(68)) { // D key for moving right
-    player.velocityX = player.attack ? player.speed / 2 : player.speed;
+    player.velocityX = player.attack ? player.speed / 4 : player.speed;
     player.directionRight = true;
   }
 }
