@@ -165,8 +165,8 @@ class Platform {
   }
 
   show() {
-    fill(50);
-    //rect(this.x, this.y, this.w, this.h);
+    fill(50, 50, 50, 50);
+    rect(this.x, this.y, this.w, this.h);
   }
 }
 
