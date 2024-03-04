@@ -114,11 +114,6 @@ class Player {
     }else{
       image(this.jumpR[int((this.jumpFrame / 5) % 10)], this.x, this.y, this.w, this.h);
       this.jumpFrame ++
-      
-      if ((this.jumpFrame / 5) % 10 == 0){
-        this.jumpFrame = 5;
-        this.isOnGround = true;
-      }
     }
     text(this.isOnGround, 100, 100);
   }
@@ -127,6 +122,7 @@ class Player {
     if (this.isOnGround) {
       this.velocityY = this.jumpForce;
       this.isOnGround = false;
+      this.jumpFrame = 0;
     }
   }
 
