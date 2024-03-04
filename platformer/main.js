@@ -114,6 +114,12 @@ class Player {
   show() {
     if(this.directionRight){
       this.animate();
+    }else{
+      push();
+      translate(charDiam, 0); // width and x position.
+      scale(-1, 1);
+      this.animate(); // very important! the xpos of the reflected must be -xpos.
+      pop();
     }
   }
 
@@ -128,7 +134,6 @@ class Player {
     }
     text(this.directionRight, 100, 100);
   }
-
 
   jump() {
     if (this.isOnGround) {
