@@ -53,7 +53,7 @@ canvas.addEventListener('click', function(event) {
   // Calculate the grid position based on mouse coordinates
   const rect = canvas.getBoundingClientRect();
   const mouseX = event.clientX - rect.left;
-  const mouseY = event.clientY - rect.top;
+  const mouseY = event.clientY - rect.top - (canvas.height/2);
 
   const gridX = Math.floor(mouseX / mapCubeSize);
   const gridY = Math.floor(mouseY / mapCubeSize);
