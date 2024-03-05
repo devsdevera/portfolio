@@ -117,15 +117,15 @@ function turnPlayer(playerAngle){
 function movement() {
   // Use keysPressed to handle multiple key presses
   if (keysPressed['a'] || keysPressed['ArrowLeft']) {
-      playerAngle += 0.75;
+      playerAngle += canvas.width / 2000;
       turnPlayer(playerAngle);
   }
   if (keysPressed['d'] || keysPressed['ArrowRight']) {
-      playerAngle -= 0.75;
+      playerAngle -= canvas.width / 2000;
       turnPlayer(playerAngle);
   }
   // MoveFactor to determine speed for forwards/backwards
-  const moveFactor = canvas.width / 500;
+  const moveFactor = canvas.width / 750;
   if (keysPressed['w'] || keysPressed['ArrowUp']) {
       playerX += playerDX * moveFactor;
       playerY += playerDY * moveFactor;
@@ -251,10 +251,10 @@ function draw() {
 
   // Draw the map, player, and cast rays
   movement();
-  drawPlayer2D();
   castRays();
   drawMap2D();
   drawRays();
+  drawPlayer2D();
 }
 
 playerDX = Math.cos(degreesToRadians(playerAngle));
