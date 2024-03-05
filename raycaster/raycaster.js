@@ -237,11 +237,10 @@ function draw() {
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
   // Draw the map, player, and cast rays
-  drawMap2D();
   movement();
   drawPlayer2D();
   castRays();
-  
+  drawMap2D();
 }
 
 playerDX = Math.cos(degreesToRadians(playerAngle));
