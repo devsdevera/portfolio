@@ -216,14 +216,14 @@ function castRays() {
 // ---------------------------- --------- --------------------------------
 
 function resizeCanvas() {
-  let curPlayerX = (playerX / canvas.height) * mapWidth, curPlayerY = (playerY / canvas.height) * mapWidth;
+  let curPlayerX = (playerX / (canvas.height / 2)) * mapWidth, curPlayerY = (playerY / (canvas.height / 2)) * mapWidth;
   canvas.width = window.innerWidth;
   canvas.height = window.innerWidth / 2;
 
   // Update mapCubeSize and gapSize based on new canvas dimensions
-  mapCubeSize = canvas.height / mapWidth;
+  mapCubeSize = (canvas.height / 2) / mapWidth;
   gapSize = canvas.width / 400;
-  playerX = (canvas.height) * (curPlayerX / mapWidth), playerY = (canvas.height) * (curPlayerY / mapWidth);
+  playerX = (canvas.height / 2) * (curPlayerX / mapWidth), playerY = (canvas.height / 2) * (curPlayerY / mapWidth);
 }
 
 window.addEventListener('resize', resizeCanvas);
