@@ -36,7 +36,7 @@ const mapLayout = [ // the map array. Edit to change level but keep the outer wa
 
 function drawMap2D() {
   ctx.fillStyle = '#000000';
-  ctx.fillRect(0, 0, mapCubeSize * mapWidth, mapCubeSize * mapWidth) ;
+  ctx.fillRect(0, (canvas.height/2), mapCubeSize * mapWidth, mapCubeSize * mapWidth) ;
   for (let y = 0; y < mapHeight; y++) {
     for (let x = 0; x < mapWidth; x++) {
 
@@ -44,7 +44,7 @@ function drawMap2D() {
       ctx.fillStyle = mapLayout[y * mapWidth + x] === 1 ? '#ffffff' : '#1a1a1a';
       const offsetX = x * mapCubeSize;
       const offsetY = y * mapCubeSize;
-      ctx.fillRect(offsetX+(gapSize/2), offsetY+(gapSize/2), mapCubeSize-gapSize, mapCubeSize-gapSize);
+      ctx.fillRect(offsetX+(gapSize/2), offsetY+(gapSize/2) + (canvas.height/2), mapCubeSize-gapSize, mapCubeSize-gapSize);
     }
   }
 }
@@ -83,12 +83,12 @@ function drawPlayer2D() {
   // Draw the direction pointer
   ctx.strokeStyle = '#ffffff';
   ctx.beginPath();
-  ctx.moveTo(playerX, playerY);
-  ctx.lineTo(playerX + playerDX * 15, playerY + playerDY * 15);
+  ctx.moveTo(playerX, playerY + (canvas.height/2));
+  ctx.lineTo(playerX + playerDX * 15, playerY + (playerDY * 15) + (canvas.height/2));
   ctx.stroke();
   ctx.fillStyle = '#ffffff';
   ctx.beginPath();
-  ctx.arc(playerX, playerY, mapCubeSize/8, 0, Math.PI * 2);
+  ctx.arc(playerX, playerY + (canvas.height/2), mapCubeSize/8, 0, Math.PI * 2);
   ctx.fill();
 }
 
@@ -125,7 +125,7 @@ function movement() {
       turnPlayer(playerAngle);
   }
   // MoveFactor to determine speed for forwards/backwards
-  const moveFactor = canvas.width / 1000;
+  const moveFactor = canvas.width / 900;
   if (keysPressed['w'] || keysPressed['ArrowUp']) {
       playerX += playerDX * moveFactor;
       playerY += playerDY * moveFactor;
@@ -201,7 +201,7 @@ function castRays() {
     rayWidth + 1, stripHeight);
 
     // Drawing the blue sky
-    ctx.fillStyle = 'rgba(0, 0, 255, 1)';
+    ctx.fillStyle = 'rgba(0, 150, 255, 1)';
     ctx.fillRect(0 + (count * rayWidth) - rayWidth, 0, rayWidth + 1, (gridWidth) - stripHeight / 2);
 
     // Drawing the Ground
@@ -211,9 +211,9 @@ function castRays() {
 
     let ray = [];
     ray.push(playerX);
-    ray.push(playerY);
+    ray.push(playerY + (canvas.height/2));
     ray.push(rayX);
-    ray.push(rayY);
+    ray.push(rayY + (canvas.height/2));
     rays.push(ray);
   }
 }
