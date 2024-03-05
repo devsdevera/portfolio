@@ -36,7 +36,7 @@ const mapLayout = [ // the map array. Edit to change level but keep the outer wa
 
 function drawMap2D() {
   ctx.fillStyle = '#000000';
-  ctx.fillRect(0, 0, mapCubeSize * mapWidth, mapCubeSize * mapWidth) ;
+  //ctx.fillRect(0, 0, mapCubeSize * mapWidth, mapCubeSize * mapWidth) ;
   for (let y = 0; y < mapHeight; y++) {
     for (let x = 0; x < mapWidth; x++) {
 
@@ -193,7 +193,7 @@ function castRays() {
     let correctedDistance = distanceToWall * Math.cos(degreesToRadians(fixAngle(playerAngle - rayAngle)));
     ctx.fillStyle = hitVertical ? 'rgba(150, 150, 150, 1)' : 'rgba(200, 200, 200, 1)';
 
-    let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / 12)) / correctedDistance;
+    let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / 6)) / correctedDistance;
 
     // Draw the walls with corrected height based on the distance
     ctx.fillRect(0 + (count * rayWidth) - rayWidth, (gridWidth) - (stripHeight / 2), 
