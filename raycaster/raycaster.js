@@ -191,7 +191,7 @@ function castRays() {
 
     // Remove fisheye effect by adjusting the distance based on the ray's angle
     let correctedDistance = distanceToWall * Math.cos(degreesToRadians(fixAngle(playerAngle - rayAngle)));
-    ctx.fillStyle = hitVertical ? 'rgba(120, 120, 120, 1)' : 'rgba(200, 200, 200, 1)';
+    ctx.fillStyle = hitVertical ? 'rgba(140, 140, 140, 1)' : 'rgba(200, 200, 200, 1)';
 
     let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / 20)) / correctedDistance;
 
