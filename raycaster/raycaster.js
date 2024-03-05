@@ -36,7 +36,7 @@ const mapLayout = [ // the map array. Edit to change level but keep the outer wa
 
 function drawMap2D() {
   ctx.fillStyle = '#000000';
-  //ctx.fillRect(0, 0, mapCubeSize * mapWidth, mapCubeSize * mapWidth) ;
+  ctx.fillRect(0, 0, mapCubeSize * mapWidth, mapCubeSize * mapWidth) ;
   for (let y = 0; y < mapHeight; y++) {
     for (let x = 0; x < mapWidth; x++) {
 
@@ -220,7 +220,7 @@ function castRays() {
 
 function drawRays(){
   for (let i = 0; i < rays.length; i++){
-    ctx.strokeStyle = 'rgba(0, 255, 255, 0.8)';
+    ctx.strokeStyle = 'rgba(0, 255, 255, 0.2)';
     ctx.beginPath();
     ctx.moveTo(rays[i][0], rays[i][1]);
     ctx.lineTo(rays[i][2], rays[i][3]);
@@ -254,7 +254,6 @@ function draw() {
   drawPlayer2D();
   castRays();
   drawMap2D();
-  ctx.fillText(rays.length, 50, 50);
   drawRays();
 }
 
