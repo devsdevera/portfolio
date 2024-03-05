@@ -185,7 +185,7 @@ function castRays() {
     }
 
     let gridWidth = mapWidth * mapCubeSize;
-    let rayWidth = (gridWidth / 240);
+    let rayWidth = ((gridWidth * 4) / 240);
 
     // Remove fisheye effect by adjusting the distance based on the ray's angle
     let correctedDistance = distanceToWall * Math.cos(degreesToRadians(fixAngle(playerAngle - rayAngle)));
