@@ -253,7 +253,7 @@ function draw() {
   drawPlayer2D();
   castRays();
   drawMap2D();
-  ctx.text("Hello, world!", 50, 50);
+  ctx.fillText("Hello, world!", 50, 50);
   drawRays();
 }
 
