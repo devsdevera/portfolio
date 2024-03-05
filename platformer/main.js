@@ -36,14 +36,14 @@ function draw() {
 
 function handleInput() {
   player.velocityX = 0;
-  if (keyIsDown(87) || keyIsDown(32)) { // W key or spacebar for jump
+  if (keyIsDown(87) || keyIsDown(32)|| keyIsDown(UP_ARROW)) { // W key or spacebar for jump
     player.jump();
   }
-  if (keyIsDown(65)) { // A key for moving left
+  if (keyIsDown(65)|| keyIsDown(LEFT_ARROW)) { // A key for moving left
     player.velocityX = player.attack && player.isOnGround ? -player.speed / 4 : -player.speed;
     player.directionRight = false;
   }
-  if (keyIsDown(68)) { // D key for moving right
+  if (keyIsDown(68)|| keyIsDown(RIGHT_ARROW)) { // D key for moving right
     player.velocityX = player.attack && player.isOnGround ? player.speed / 4 : player.speed;
     player.directionRight = true;
   }
