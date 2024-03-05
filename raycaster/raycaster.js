@@ -194,14 +194,14 @@ function castRays() {
     let stripHeight = (gridWidth * (gridWidth / 12)) / correctedDistance;
 
     // Draw the walls with corrected height based on the distance
-    ctx.fillRect(gridWidth + (count * rayWidth) - rayWidth, (gridWidth/2) - (stripHeight / 2), 
+    ctx.fillRect(0 + (count * rayWidth) - rayWidth, (gridWidth/2) - (stripHeight / 2), 
     rayWidth + 1, stripHeight);
 
     ctx.fillStyle = 'rgba(0, 0, 255, 1)';
-    ctx.fillRect(gridWidth + (count * rayWidth) - rayWidth, 0, rayWidth + 1, (gridWidth / 2) - stripHeight / 2);
+    ctx.fillRect(0 + (count * rayWidth) - rayWidth, 0, rayWidth + 1, (gridWidth / 2) - stripHeight / 2);
 
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
-    ctx.fillRect(gridWidth + (count * rayWidth) - rayWidth, (gridWidth / 2) + (stripHeight / 2), 
+    ctx.fillRect(0 + (count * rayWidth) - rayWidth, (gridWidth / 2) + (stripHeight / 2), 
     rayWidth + 1, (gridWidth / 2) - stripHeight / 2);
 
     // Draw the ray
