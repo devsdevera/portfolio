@@ -35,6 +35,8 @@ const mapLayout = [ // the map array. Edit to change level but keep the outer wa
 ];
 
 function drawMap2D() {
+  ctx.fillStyle = '#000000';
+  ctx.fillRect(0, 0, mapCubeSize * mapWidth, mapCubeSize * mapWidth) ;
   for (let y = 0; y < mapHeight; y++) {
     for (let x = 0; x < mapWidth; x++) {
 
