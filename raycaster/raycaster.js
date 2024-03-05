@@ -193,7 +193,7 @@ function castRays() {
     let correctedDistance = distanceToWall * Math.cos(degreesToRadians(fixAngle(playerAngle - rayAngle)));
     ctx.fillStyle = hitVertical ? 'rgba(150, 150, 150, 1)' : 'rgba(200, 200, 200, 1)';
 
-    let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / 6)) / correctedDistance;
+    let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / 20)) / correctedDistance;
 
     // Draw the walls with corrected height based on the distance
     ctx.fillRect(0 + (count * rayWidth) - rayWidth, (gridWidth) - (stripHeight / 2), 
