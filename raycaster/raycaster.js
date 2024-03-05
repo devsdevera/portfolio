@@ -74,7 +74,7 @@ canvas.addEventListener('click', function(event) {
 
 // ---------------------------- PLAYER --------------------------------
 
-let playerX = (canvas.height) * (16 / mapWidth), playerY = (canvas.height) * (4 / mapWidth);
+let playerX = (canvas.height / 2) * (16 / mapWidth), playerY = (canvas.height / 2) * (4 / mapWidth);
 let playerDX, playerDY, playerAngle = 225;
 
 function drawPlayer2D() {
