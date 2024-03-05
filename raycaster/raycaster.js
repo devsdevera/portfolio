@@ -214,6 +214,7 @@ function castRays() {
     ray.push(playerY);
     ray.push(rayX);
     ray.push(rayY);
+    rays.push(ray);
   }
 }
 
