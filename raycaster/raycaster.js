@@ -139,8 +139,9 @@ function movement() {
 // ---------------------------- --------- --------------------------------
 
 // ---------------------------- RAYCASTER --------------------------------
-
+let rays = [];
 function castRays() {
+  rays = [];
   for (let count = 0, rayAngle = playerAngle + 30; rayAngle >= playerAngle - 30; rayAngle -= 0.25, count ++) {
     // Cast a ray and find the intersection with the walls
     let rayX = playerX, rayY = playerY;
@@ -208,11 +209,20 @@ function castRays() {
     ctx.fillRect(0 + (count * rayWidth) - rayWidth, (gridWidth) + (stripHeight / 2), 
     rayWidth + 1, (gridWidth) - stripHeight / 2);
 
-    // Draw the ray
-    ctx.strokeStyle = 'rgba(0, 0, 0, 0.8)';
+    let ray = [];
+    ray.push(playerX);
+    ray.push(playerY);
+    ray.push(rayX);
+    ray.push(rayY);
+  }
+}
+
+function drawRays(){
+  for (let i = 0; i < rays.length; i++){
+    ctx.strokeStyle = 'rgba(0, 255, 255, 0.8)';
     ctx.beginPath();
-    ctx.moveTo(playerX, playerY);
-    ctx.lineTo(rayX, rayY);
+    ctx.moveTo(rays[i][0], rays[i][1]);
+    ctx.lineTo(rays[i][2], rays[i][3]);
     ctx.stroke();
   }
 }
@@ -243,6 +253,7 @@ function draw() {
   drawPlayer2D();
   castRays();
   drawMap2D();
+  drawRays();
 }
 
 playerDX = Math.cos(degreesToRadians(playerAngle));
