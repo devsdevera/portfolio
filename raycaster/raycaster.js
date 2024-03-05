@@ -41,7 +41,7 @@ function drawMap2D() {
     for (let x = 0; x < mapWidth; x++) {
 
       // Determine colour if Wall and the X/Y Position
-      ctx.fillStyle = mapLayout[y * mapWidth + x] === 1 ? '#999999' : '#1a1a1a';
+      ctx.fillStyle = mapLayout[y * mapWidth + x] === 1 ? '#ffffff' : '#1a1a1a';
       const offsetX = x * mapCubeSize;
       const offsetY = y * mapCubeSize;
       ctx.fillRect(offsetX+(gapSize/2), offsetY+(gapSize/2), mapCubeSize-gapSize, mapCubeSize-gapSize);
@@ -209,7 +209,7 @@ function castRays() {
     rayWidth + 1, (gridWidth) - stripHeight / 2);
 
     // Draw the ray
-    ctx.strokeStyle = 'rgba(0, 255, 255, 0.2)';
+    ctx.strokeStyle = 'rgba(255, 255, 0, 0.2)';
     ctx.beginPath();
     ctx.moveTo(playerX, playerY);
     ctx.lineTo(rayX, rayY);
