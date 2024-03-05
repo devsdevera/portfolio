@@ -191,15 +191,17 @@ function castRays() {
     let correctedDistance = distanceToWall * Math.cos(degreesToRadians(fixAngle(playerAngle - rayAngle)));
     ctx.fillStyle = hitVertical ? 'rgba(150, 150, 150, 1)' : 'rgba(200, 200, 200, 1)';
 
-    let stripHeight = (gridWidth * (gridWidth / 12)) / correctedDistance;
+    let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / 12)) / correctedDistance;
 
     // Draw the walls with corrected height based on the distance
     ctx.fillRect(0 + (count * rayWidth) - rayWidth, (gridWidth/2) - (stripHeight / 2), 
     rayWidth + 1, stripHeight);
 
+    // Drawing the blue sky
     ctx.fillStyle = 'rgba(0, 0, 255, 1)';
     ctx.fillRect(0 + (count * rayWidth) - rayWidth, 0, rayWidth + 1, (gridWidth / 2) - stripHeight / 2);
 
+    // Drawing the Ground
     ctx.fillStyle = 'rgba(255, 255, 255, 1)';
     ctx.fillRect(0 + (count * rayWidth) - rayWidth, (gridWidth / 2) + (stripHeight / 2), 
     rayWidth + 1, (gridWidth / 2) - stripHeight / 2);
