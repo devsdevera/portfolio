@@ -117,15 +117,15 @@ function turnPlayer(playerAngle){
 function movement() {
   // Use keysPressed to handle multiple key presses
   if (keysPressed['a'] || keysPressed['ArrowLeft']) {
-      playerAngle += canvas.width / 2000;
+      playerAngle += 0.5;
       turnPlayer(playerAngle);
   }
   if (keysPressed['d'] || keysPressed['ArrowRight']) {
-      playerAngle -= canvas.width / 2000;
+      playerAngle -= 0.5;
       turnPlayer(playerAngle);
   }
   // MoveFactor to determine speed for forwards/backwards
-  const moveFactor = canvas.width / 750;
+  const moveFactor = canvas.width / 1000;
   if (keysPressed['w'] || keysPressed['ArrowUp']) {
       playerX += playerDX * moveFactor;
       playerY += playerDY * moveFactor;
