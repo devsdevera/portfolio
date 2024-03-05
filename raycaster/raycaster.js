@@ -209,7 +209,7 @@ function castRays() {
     rayWidth + 1, (gridWidth) - stripHeight / 2);
 
     // Draw the ray
-    ctx.strokeStyle = 'rgba(255, 255, 0, 0.2)';
+    ctx.strokeStyle = 'rgba(0, 0, 0, 0.2)';
     ctx.beginPath();
     ctx.moveTo(playerX, playerY);
     ctx.lineTo(rayX, rayY);
