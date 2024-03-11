@@ -1,6 +1,7 @@
 let player;
 let platforms = [];
 let b1, b2, b3, sprites;
+let grove, newgame, ret;
 let cameraX = 0;
 let state = "play"
 
@@ -9,6 +10,9 @@ function preload() {
   b2 = new Background(loadImage("images/background_layer_2.png"), 2);
   b3 = new Background(loadImage("images/background_layer_3.png"), 1);
   sprites = loadImage("images/char_blue_right.png");
+  grove = loadImage("images/grove.png");
+  newgame = loadImage("images/newgame.png");
+  ret = loadImage("images/return.png");
 }
 
 function setup() {
