@@ -23,7 +23,7 @@ function windowResized() {
 
 function draw() {
 
-  if(state.equals("play")){
+  if(state == "play"){
     background(200);
     handleInput();
     b1.display();
