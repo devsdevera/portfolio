@@ -2,6 +2,7 @@ let player;
 let platforms = [];
 let b1, b2, b3, sprites;
 let cameraX = 0;
+let state = "play"
 
 function preload() {
   b1 = new Background(loadImage("images/background_layer_1.png"), 3);
@@ -21,17 +22,22 @@ function windowResized() {
 }
 
 function draw() {
-  background(200);
-  handleInput();
-  b1.display();
-  b2.display();
-  b3.display();
-  player.update();
-  player.show();
-  platforms.forEach(platform => {
-    platform.show();
-    player.collide(platform);
-  });
+
+  if(state == "play"){
+    background(200);
+    handleInput();
+    b1.display();
+    b2.display();
+    b3.display();
+    player.update();
+    player.show();
+    platforms.forEach(platform => {
+      platform.show();
+      player.collide(platform);
+    });
+  }else if (state == "menu"){
+
+  }
 }
 
 function handleInput() {
