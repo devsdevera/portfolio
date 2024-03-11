@@ -256,7 +256,7 @@ window.addEventListener('resize', resizeCanvas);
 
 
 function draw() {
-  if (state == "game"){
+  if (state == "play"){
     // Fill the canvas with black color
     ctx.fillStyle = '#000000'; // black color
     ctx.fillRect(0, 0, canvas.width, canvas.height);
