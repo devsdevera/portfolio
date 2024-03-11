@@ -2,7 +2,7 @@ let player;
 let platforms = [];
 let b1, b2, b3, sprites;
 let cameraX = 0;
-let state = "play"
+let state = "menu"
 
 function preload() {
   b1 = new Background(loadImage("images/background_layer_1.png"), 3);
