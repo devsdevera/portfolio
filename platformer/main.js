@@ -36,7 +36,7 @@ function draw() {
       player.collide(platform);
     });
   }else if (state == "menu"){
-
+    background(0);
   }
 }
 
