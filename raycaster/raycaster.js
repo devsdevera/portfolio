@@ -1,5 +1,6 @@
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
+let state = "play"
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerWidth / 2;
@@ -255,16 +256,21 @@ window.addEventListener('resize', resizeCanvas);
 
 
 function draw() {
-  // Fill the canvas with black color
-  ctx.fillStyle = '#000000'; // black color
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-  // Draw the map, player, and cast rays
-  movement();
-  castRays();
-  drawMap2D();
-  drawRays();
-  drawPlayer2D();
+  if (state == "game"){
+    // Fill the canvas with black color
+    ctx.fillStyle = '#000000'; // black color
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  
+    // Draw the map, player, and cast rays
+    movement();
+    castRays();
+    drawMap2D();
+    drawRays();
+    drawPlayer2D();
+  }else if (state == "menu"){
+    ctx.fillStyle = '#000000'; // black color
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+  }
 }
 
 playerDX = Math.cos(degreesToRadians(playerAngle));
