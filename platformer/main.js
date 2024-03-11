@@ -2,7 +2,7 @@ let player;
 let platforms = [];
 let b1, b2, b3, sprites;
 let cameraX = 0;
-let state = "menu"
+let state = "play"
 
 function preload() {
   b1 = new Background(loadImage("images/background_layer_1.png"), 3);
@@ -23,7 +23,7 @@ function windowResized() {
 
 function draw() {
 
-  if(state == "play"){
+  if(state.equals("play")){
     background(200);
     handleInput();
     b1.display();
