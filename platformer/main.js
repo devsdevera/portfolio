@@ -39,6 +39,9 @@ function draw() {
       platform.show();
       player.collide(platform);
     });
+    image(grove, 0, 0);
+    image(newgame, 0, height / 3);
+    image(ret, 0, height / 1.5);
   }else if (state == "menu"){
     background(0);
   }
