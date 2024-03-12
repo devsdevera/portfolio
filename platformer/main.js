@@ -26,7 +26,6 @@ function windowResized() {
 }
 
 function draw() {
-
   if(state == "play"){
     background(200);
     handleInput();
@@ -39,9 +38,9 @@ function draw() {
       platform.show();
       player.collide(platform);
     });
-    image(grove, 0, 0);
-    image(newgame, 0, height / 3);
-    image(ret, 0, height / 1.5);
+    image(grove, 0, 0, width / 5, height / 5);
+    image(newgame, 0, height / 3, width / 5, height / 5);
+    image(ret, 0, height / 1.5, width / 5, height / 5);
   }else if (state == "menu"){
     background(0);
   }
