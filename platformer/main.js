@@ -38,9 +38,9 @@ function draw() {
       platform.show();
       player.collide(platform);
     });
-    image(grove, 0, 0, width / 4, height / 4);
-    image(newgame, 0, height / 3, width / 6, height / 6);
-    image(ret, 0, height / 1.5, width / 6, height / 6);
+    image(grove, width / 5, height / 4, width / 3, height / 3);
+    image(newgame, width / 4, height / 3.5, width / 6, height / 6);
+    image(ret, width / 4, height / 3, width / 6, height / 6);
   }else if (state == "menu"){
     background(0);
   }
