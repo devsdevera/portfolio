@@ -38,9 +38,7 @@ function draw() {
       platform.show();
       player.collide(platform);
     });
-    image(grove, width / 11, height / 6, width / 3, height / 3);
-    image(newgame, width / 9, height / 2.4, width / 5, height / 5);
-    image(ret, width / 9, height / 2, width / 5, height / 5);
+    
   }else if (state == "menu"){
     background(0);
   }
@@ -208,7 +206,7 @@ class Background {
 
   // Custom method for updating the variables
   world2ScreenX(x, z) {
-    return (x - millis()) / z; // word will go to the left
+    return (x - cameraX) / z; // word will go to the left
   }
 
   // Custom methods for drawing the object
@@ -217,5 +215,9 @@ class Background {
     image(this.background, this.world2ScreenX(windowWidth, this.depth) - windowWidth * 2, 0, windowWidth * 2, height);
     image(this.background, this.world2ScreenX(windowWidth, this.depth), 0, windowWidth * 2, height);
     image(this.background, this.world2ScreenX(windowWidth, this.depth) + windowWidth * 2, 0, windowWidth * 2, height);
+
+    image(grove, (width / 11) - this.world2ScreenX(windowWidth, 3), height / 6, width / 3, height / 3);
+    image(newgame, (width / 9) - this.world2ScreenX(windowWidth, 3), height / 2.4, width / 5, height / 5);
+    image(ret, (width / 9) - this.world2ScreenX(windowWidth, 3), height / 2, width / 5, height / 5);
   }
 }
