@@ -60,12 +60,15 @@ function handleInput() {
 }
 
 function mouseClicked() {
+  if (mouseX >= 0 && mouseY >= 0 && mouseX <= 100 && mouseY <= 100) {
+    state = "menu";
+  }
   player.attack = true;
 }
 
 class Player {
   constructor() {
-    this.x = windowWidth;
+    this.x = windowWidth / 2;
     this.y = height - 50;
     this.w = height / 4;
     this.h = height / 4;
