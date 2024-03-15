@@ -65,7 +65,7 @@ function mouseClicked() {
 
 class Player {
   constructor() {
-    this.x = 10;
+    this.x = windowWidth;
     this.y = height - 50;
     this.w = height / 4;
     this.h = height / 4;
