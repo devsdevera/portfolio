@@ -26,33 +26,18 @@ function windowResized() {
 }
 
 function draw() {
-  if(state == "play"){
-    background(200);
-    handleInput();
-    b1.display();
-    b2.display();
-    b3.display();
-    player.update();
-    player.show();
-    platforms.forEach(platform => {
-      platform.show();
-      player.collide(platform);
-    });
-    
-  }else if (state == "menu"){
-    cameraX += 1;
-    background(200);
-    handleInput();
-    b1.display();
-    b2.display();
-    b3.display();
-    player.update();
-    player.show();
-    platforms.forEach(platform => {
-      platform.show();
-      player.collide(platform);
-    });
-  }
+  cameraX += state == "menu" && cameraX < windowWidth/2 : player.velocityY : 0;
+  background(200);
+  handleInput();
+  b1.display();
+  b2.display();
+  b3.display();
+  player.update();
+  player.show();
+  platforms.forEach(platform => {
+    platform.show();
+    player.collide(platform);
+  });
 }
 
 function handleInput() {
