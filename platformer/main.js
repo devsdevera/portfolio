@@ -228,9 +228,9 @@ class Background {
   // Custom methods for drawing the object
   display() {
     // wrapping images for both forward and back player movement.
-    image(this.background, this.world2ScreenX(0, this.depth) - windowWidth * 2, 0, windowWidth * 2, height);
-    image(this.background, this.world2ScreenX(0, this.depth), 0, windowWidth * 2, height);
-    image(this.background, this.world2ScreenX(0, this.depth) + windowWidth * 2, 0, windowWidth * 2, height);
+    image(this.background, this.world2ScreenX(windowWidth, this.depth) - windowWidth * 2, 0, windowWidth * 2, height);
+    image(this.background, this.world2ScreenX(windowWidth, this.depth), 0, windowWidth * 2, height);
+    image(this.background, this.world2ScreenX(windowWidth, this.depth) + windowWidth * 2, 0, windowWidth * 2, height);
 
     image(grove, (width / 11) + this.world2ScreenX(0, 1), height / 6, width / 3, height / 3);
     image(newgame, (width / 9) + this.world2ScreenX(0, 1), height / 2.4, width / 5, height / 5);
