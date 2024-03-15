@@ -61,7 +61,7 @@ function handleInput() {
 
 function mouseClicked() {
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= 100 && mouseY <= 100) {
-    while(cameraX < 1000){
+    if (cameraX < 1000){
       cameraX += millis();
     }
   }
