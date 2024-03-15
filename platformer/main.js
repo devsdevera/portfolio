@@ -40,7 +40,17 @@ function draw() {
     });
     
   }else if (state == "menu"){
-    background(0);
+    background(200);
+    handleInput();
+    b1.display();
+    b2.display();
+    b3.display();
+    player.update();
+    player.show();
+    platforms.forEach(platform => {
+      platform.show();
+      player.collide(platform);
+    });
   }
 }
 
@@ -62,7 +72,7 @@ function handleInput() {
 function mouseClicked() {
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= 100 && mouseY <= 100) {
     if (cameraX < 1000){
-      cameraX += millis();
+      state = "menu"
     }
   }
   player.attack = true;
@@ -212,7 +222,7 @@ class Background {
   // Custom method for updating the variables
   world2ScreenX(x, z) {
     
-    return (x - millis()) / z; // word will go to the left
+    return state == "menu" ? (x - millis()) / z : (x - cameraX) / z; // word will go to the left
   }
 
   // Custom methods for drawing the object
