@@ -40,6 +40,7 @@ function draw() {
     });
     
   }else if (state == "menu"){
+    cameraX += 1;
     background(200);
     handleInput();
     b1.display();
@@ -222,7 +223,7 @@ class Background {
   // Custom method for updating the variables
   world2ScreenX(x, z) {
     
-    return state == "menu" ? (x - millis()) / z : (x - cameraX) / z; // word will go to the left
+    return (x - cameraX) / z; // word will go to the left
   }
 
   // Custom methods for drawing the object
