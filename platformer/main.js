@@ -61,7 +61,9 @@ function handleInput() {
 
 function mouseClicked() {
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= 100 && mouseY <= 100) {
-    state = "menu";
+    if(cameraX < 1000){
+      cameraX += milis();
+    }
   }
   player.attack = true;
 }
@@ -209,6 +211,7 @@ class Background {
 
   // Custom method for updating the variables
   world2ScreenX(x, z) {
+    
     return (x - cameraX) / z; // word will go to the left
   }
 
