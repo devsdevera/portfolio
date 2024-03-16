@@ -30,7 +30,7 @@ function draw() {
   cameraX += state == "slide" && cameraX < windowWidth/2 ? 5 : 0;
   slideX = cameraX;
   if (cameraX >= windowWidth/2){
-    state = "play"
+    state = "play";
     slideX = 0;
   }
   background(200);
