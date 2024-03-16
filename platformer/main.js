@@ -27,7 +27,7 @@ function windowResized() {
 }
 
 function draw() {
-  cameraX += state == "slide" && cameraX < windowWidth/2 ? 10 : 0;
+  cameraX += state == "slide" && cameraX < windowWidth/2 ? (windowWidth/100) : 0;
   slideX = state == "slide" ? cameraX : 0;
   if (cameraX >= windowWidth/2){
     state = "play";
@@ -70,7 +70,7 @@ function mouseClicked() {
       mouseY >= (﻿0.55 * height) && mouseY <= (0.62 * height)) {
     window.location.href = 'https://devsdevera.com/';
   }
-  player.attack = true;
+  player.attack = state == "play" ? true : false;
 }
 
 class Player {
