@@ -26,7 +26,7 @@ function windowResized() {
 }
 
 function draw() {
-  cameraX += state == "menu" && cameraX < windowWidth/2 : player.velocityY : 0;
+  cameraX += state == "menu" && cameraX < windowWidth/2 ? player.velocityY : 0;
   background(200);
   handleInput();
   b1.display();
