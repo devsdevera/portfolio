@@ -3,6 +3,7 @@ let platforms = [];
 let b1, b2, b3, sprites;
 let grove, newgame, ret;
 let cameraX = 0;
+let slideX = 0;
 let state = "menu"
 
 function preload() {
@@ -27,8 +28,10 @@ function windowResized() {
 
 function draw() {
   cameraX += state == "slide" && cameraX < windowWidth/2 ? 5 : 0;
+  slideX = cameraX;
   if (cameraX >= windowWidth/2){
     state = "play"
+    slideX = 0;
   }
   background(200);
   handleInput();
@@ -151,7 +154,7 @@ class Player {
 
   animate(axis){
     if(this.attack){
-      image(this.attackR[int((this.attackFrame / 5) % 8)], axis * this.x - cameraX, this.y, this.w, this.h);
+      image(this.attackR[int((this.attackFrame / 5) % 8)], axis * this.x - slideX, this.y, this.w, this.h);
       this.attackFrame ++
       if(int((this.attackFrame / 5) % 8) === 7){
         this.attack = false;
@@ -159,11 +162,11 @@ class Player {
       }
     }else{
       if(this.isOnGround && this.velocityX != 0){
-        image(this.runR[int((frameCount / 5) % 8)], axis * this.x - cameraX, this.y, this.w, this.h);
+        image(this.runR[int((frameCount / 5) % 8)], axis * this.x - slideX, this.y, this.w, this.h);
       }else if(this.isOnGround && this.velocityX == 0){
-        image(this.idles[int((frameCount / 5) % 6)], axis * this.x - cameraX, this.y, this.w, this.h);
+        image(this.idles[int((frameCount / 5) % 6)], axis * this.x - slideX, this.y, this.w, this.h);
       }else{
-        image(this.jumpR[int((this.jumpFrame / 5) % 10)], axis * this.x - cameraX, this.y, this.w, this.h);
+        image(this.jumpR[int((this.jumpFrame / 5) % 10)], axis * this.x - slideX, this.y, this.w, this.h);
         this.jumpFrame ++
       }
     }
