@@ -29,7 +29,7 @@ function windowResized() {
 function draw() {
   cameraX += state == "slide" && cameraX < windowWidth ? 5 : 0;
   slideX = state == "slide" ? cameraX : 0;
-  if (cameraX >= windowWidth){
+  if (cameraX >= windowWidth * 1.5){
     state = "play";
     slideX = 0;
   }
@@ -75,7 +75,7 @@ function mouseClicked() {
 
 class Player {
   constructor() {
-    this.x = windowWidth;
+    this.x = windowWidth * 1.5;
     this.y = height - 50;
     this.w = height / 4;
     this.h = height / 4;
