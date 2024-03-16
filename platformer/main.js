@@ -63,6 +63,7 @@ function mouseClicked() {
   if (mouseX >= (0.11 * windowWidth) && mouseX <= (0.30 * windowWidth) && 
       mouseY >= (﻿0.47 * height) && mouseY <= (0.54 * height)) {
     state = "menu";
+    window.location.href = 'https://devsdevera.com/';
   }
   player.attack = true;
 }
