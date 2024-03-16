@@ -48,7 +48,7 @@ function draw() {
 
 function handleInput() {
   player.velocityX = 0;
-  if ((state == "play") && keyIsDown(87) || keyIsDown(32)|| keyIsDown(UP_ARROW)) { // W key or spacebar for jump
+  if ((state == "play") && (keyIsDown(87) || keyIsDown(32)|| keyIsDown(UP_ARROW))) { // W key or spacebar for jump
     player.jump();
   }
   if ((state == "play") && keyIsDown(65)|| keyIsDown(LEFT_ARROW)) { // A key for moving left
