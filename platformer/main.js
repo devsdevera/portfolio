@@ -126,8 +126,10 @@ class Player {
       this.y += this.velocityY;
     }
     this.isOnGround = this.y + this.h >= height - (height / 10);
-    this.x = constrain(this.x, 100, width / 2);
-    cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
+    if (state != "menu"){
+      this.x = constrain(this.x, 100, width / 2);
+      cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
+    }
   }
 
   show() {
