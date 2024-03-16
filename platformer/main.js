@@ -60,9 +60,12 @@ function mouseClicked() {
   console.log(mouseY / (windowWidth / (16 / 9)));
   console.log(height);
   
-  if (mouseX >= (0.11 * windowWidth) && mouseX <= (0.30 * windowWidth) && 
+  if (mouseX >= (0.11 * windowWidth) && mouseX <= (0.31 * windowWidth) && 
       mouseY >= (﻿0.47 * height) && mouseY <= (0.54 * height)) {
     state = "menu";
+  }
+  if (mouseX >= (0.11 * windowWidth) && mouseX <= (0.31 * windowWidth) && 
+      mouseY >= (﻿0.55 * height) && mouseY <= (0.62 * height)) {
     window.location.href = 'https://devsdevera.com/';
   }
   player.attack = true;
