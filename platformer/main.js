@@ -4,7 +4,7 @@ let b1, b2, b3, sprites;
 let grove, newgame, ret;
 let cameraX = 0;
 let slideX = 0;
-let state = "menu"
+let state = "menu";
 
 function preload() {
   b1 = new Background(loadImage("images/background_layer_1.png"), 3);
@@ -28,7 +28,7 @@ function windowResized() {
 
 function draw() {
   cameraX += state == "slide" && cameraX < windowWidth/2 ? 5 : 0;
-  slideX = cameraX;
+  slideX = state == "slide" ? cameraX : 0;
   if (cameraX >= windowWidth/2){
     state = "play";
     slideX = 0;
