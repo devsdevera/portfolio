@@ -27,7 +27,7 @@ function windowResized() {
 }
 
 function draw() {
-  cameraX += state == "slide" && cameraX < windowWidth/2 ? (windowWidth/100) : 0;
+  cameraX += state == "slide" && cameraX < windowWidth/2 ? (windowWidth/300) : 0;
   slideX = state == "slide" ? cameraX : 0;
   if (cameraX >= windowWidth/2){
     state = "play";
