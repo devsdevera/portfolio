@@ -27,6 +27,9 @@ function windowResized() {
 
 function draw() {
   cameraX += state == "slide" && cameraX < windowWidth/2 ? 5 : 0;
+  if (cameraX >= windowWidth/2){
+    state = "play"
+  }
   background(200);
   handleInput();
   b1.display();
@@ -126,8 +129,11 @@ class Player {
       this.y += this.velocityY;
     }
     this.isOnGround = this.y + this.h >= height - (height / 10);
-    this.x = constrain(this.x, 100, width / 2);
-    cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
+
+    if (state == "play"){
+      this.x = constrain(this.x, 100, width / 2);
+      cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
+    }
   }
 
   show() {
