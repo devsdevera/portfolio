@@ -56,6 +56,9 @@ function handleInput() {
 }
 
 function mouseClicked() {
+  console.log(mouseX / windowWidth);
+  console.log(mouseY / (windowWidth / (16 / 9)));
+  
   if (mouseX >= 0 && mouseY >= 0 && mouseX <= 100 && mouseY <= 100) {
     state = "menu";
   }
