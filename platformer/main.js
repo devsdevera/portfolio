@@ -72,7 +72,7 @@ function mouseClicked() {
 
 class Player {
   constructor() {
-    this.x = windowWidth / 2;
+    this.x = windowWidth;
     this.y = height - 50;
     this.w = height / 4;
     this.h = height / 4;
@@ -227,8 +227,10 @@ class Background {
     image(this.background, this.world2ScreenX(windowWidth, this.depth), 0, windowWidth * 2, height);
     image(this.background, this.world2ScreenX(windowWidth, this.depth) + windowWidth * 2, 0, windowWidth * 2, height);
 
-    image(grove, (width / 11) + this.world2ScreenX(0, 1), height / 6, width / 3, height / 3);
-    image(newgame, (width / 9) + this.world2ScreenX(0, 1), height / 2.4, width / 5, height / 5);
-    image(ret, (width / 9) + this.world2ScreenX(0, 1), height / 2, width / 5, height / 5);
+    if (state != "play"){
+      image(grove, (width / 11) + this.world2ScreenX(0, 1), height / 6, width / 3, height / 3);
+      image(newgame, (width / 9) + this.world2ScreenX(0, 1), height / 2.4, width / 5, height / 5);
+      image(ret, (width / 9) + this.world2ScreenX(0, 1), height / 2, width / 5, height / 5);
+    }
   }
 }
