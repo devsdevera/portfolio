@@ -27,7 +27,7 @@ function windowResized() {
 }
 
 function draw() {
-  cameraX += state == "slide" && cameraX < windowWidth/2 ? 5 : 0;
+  cameraX += state == "slide" && cameraX < windowWidth/2 ? 10 : 0;
   slideX = state == "slide" ? cameraX : 0;
   if (cameraX >= windowWidth/2){
     state = "play";
@@ -48,14 +48,14 @@ function draw() {
 
 function handleInput() {
   player.velocityX = 0;
-  if (keyIsDown(87) || keyIsDown(32)|| keyIsDown(UP_ARROW)) { // W key or spacebar for jump
+  if ((state == "play") && keyIsDown(87) || keyIsDown(32)|| keyIsDown(UP_ARROW)) { // W key or spacebar for jump
     player.jump();
   }
-  if (keyIsDown(65)|| keyIsDown(LEFT_ARROW)) { // A key for moving left
+  if ((state == "play") && keyIsDown(65)|| keyIsDown(LEFT_ARROW)) { // A key for moving left
     player.velocityX = player.attack && player.isOnGround ? -player.speed / 4 : -player.speed;
     player.directionRight = false;
   }
-  if (keyIsDown(68)|| keyIsDown(RIGHT_ARROW)) { // D key for moving right
+  if ((state == "play") && keyIsDown(68)|| keyIsDown(RIGHT_ARROW)) { // D key for moving right
     player.velocityX = player.attack && player.isOnGround ? player.speed / 4 : player.speed;
     player.directionRight = true;
   }
@@ -132,7 +132,6 @@ class Player {
       this.y += this.velocityY;
     }
     this.isOnGround = this.y + this.h >= height - (height / 10);
-
     if (state == "play"){
       this.x = constrain(this.x, 100, width / 2);
       cameraX += this.x == 100 || this.x == (width / 2) ? this.velocityX : 0;
