@@ -58,8 +58,10 @@ function handleInput() {
 function mouseClicked() {
   console.log(mouseX / windowWidth);
   console.log(mouseY / (windowWidth / (16 / 9)));
+  console.log(height);
   
-  if (mouseX >= 0 && mouseY >= 0 && mouseX <= 100 && mouseY <= 100) {
+  if (mouseX >= (0.11 * windowWidth) && mouseX <= (0.30 * windowWidth) && 
+      mouseY >= (﻿0.47 * height) && mouseY <= (0.54 * height)) {
     state = "menu";
   }
   player.attack = true;
