@@ -3,7 +3,7 @@ let platforms = [];
 let b1, b2, b3, sprites;
 let grove, newgame, ret;
 let cameraX = 0;
-let state = "play"
+let state = "menu"
 
 function preload() {
   b1 = new Background(loadImage("images/background_layer_1.png"), 3);
@@ -26,7 +26,7 @@ function windowResized() {
 }
 
 function draw() {
-  cameraX += state == "menu" && cameraX < windowWidth/2 ? 5 : 0;
+  cameraX += state == "slide" && cameraX < windowWidth/2 ? 5 : 0;
   background(200);
   handleInput();
   b1.display();
@@ -56,15 +56,11 @@ function handleInput() {
 }
 
 function mouseClicked() {
-  console.log(mouseX / windowWidth);
-  console.log(mouseY / (windowWidth / (16 / 9)));
-  console.log(height);
-  
-  if (mouseX >= (0.11 * windowWidth) && mouseX <= (0.31 * windowWidth) && 
+  if ((state == "menu") && mouseX >= (0.11 * windowWidth) && mouseX <= (0.32 * windowWidth) && 
       mouseY >= (﻿0.47 * height) && mouseY <= (0.54 * height)) {
-    state = "menu";
+    state = "slide"
   }
-  if (mouseX >= (0.11 * windowWidth) && mouseX <= (0.31 * windowWidth) && 
+  if ((state == "menu") && mouseX >= (0.11 * windowWidth) && mouseX <= (0.32 * windowWidth) && 
       mouseY >= (﻿0.55 * height) && mouseY <= (0.62 * height)) {
     window.location.href = 'https://devsdevera.com/';
   }
