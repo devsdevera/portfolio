@@ -3,7 +3,7 @@
 function setup() {
   createCanvas(windowWidth, windowWidth / 2);
   frameRate(60);
-  mapWidth = height / 2;
+  mapWidth = height / mapSize;
   gap = height / 500;
   cubeSize = mapWidth / rows;
   playerX = (16 / cols) * mapWidth;
@@ -18,6 +18,7 @@ function windowResized() {
 
 let rows = 20, cols = 20;
 let mapWidth, gap, cubeSize;
+let mapSize = 4;
 let mapClicked = false;
 
 const mapLayout = [ // the map array. Edit to change level but keep the outer walls
@@ -58,7 +59,7 @@ function drawMap(){
 
 function mousePressed() {
   // Calculate the index in the mapLayout array
-  if (mouseX >= 0 && mouseX < mapWidth && mouseY >= mapWidth && mouseY < height) {
+  if (mouseX >= 0 && mouseX < mapWidth && mouseY >= mapWidth && mouseY < mapWidth * 2) {
     mapClicked = true;
     let col = floor((mouseX - gap) / cubeSize);
     let row = floor((mouseY - mapWidth) / cubeSize);
@@ -74,7 +75,7 @@ function mousePressed() {
 let playerX, playerY, playerDX, playerDY, playerAngle = 225;
 let wDown, sDown, aDown, dDown;
 let prevX = 0, prevY = 0;
-let sensitivity = 0.05;
+let sensitivity = 0.1;
 
 function drawPlayer() {
   // Draw the direction pointer
@@ -182,12 +183,12 @@ function castRays(){
         rayY += raySin;
       }
     }
-    let gridWidth = rows * cubeSize;
+    let gridWidth = (rows * (mapSize / 2)) * cubeSize;
     let rayWidth = width / resolution;
 
     // Remove fisheye effect by adjusting the distance based on the ray's angle
     let correctedDistance = distanceToWall * Math.cos(degreesToRadians(fixAngle(playerAngle - rayAngle)));
-    let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / 18)) / correctedDistance;
+    let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / (mapSize / 0.1))) / correctedDistance;
 
     fill(hitVertical ? 'rgba(150, 150, 150, 1)' : 'rgba(200, 200, 200, 1)');
     rect(0 + (count * rayWidth) - rayWidth, (gridWidth) - (stripHeight / 2), rayWidth + 1, stripHeight);
@@ -217,7 +218,7 @@ function draw() {
   castRays();
   drawMap();
   drawPlayer();
-  //drawRays();
+  drawRays();
 
   // ((mouseX - width / 2) / width) * 2
   playerAngle -= mouseIsPressed && !mapClicked? (mouseX - prevX) * sensitivity : 0;
