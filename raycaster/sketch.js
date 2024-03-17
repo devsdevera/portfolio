@@ -205,13 +205,31 @@ function castRays(){
           hitVertical = true;
         }
         // vertical wall check, wall infront or behind, diagonal edge cases
-        if((mapLayout[(testY+1) * cols + testX] == 1|| mapLayout[(testY - 1) * cols + testX] == 1) &&
-        ((testX == preX + 1 && testY == preY + 1) ||
-        (testX == preX - 1 && testY == preY - 1) ||
-        (testX == preX - 1 && testY == preY + 1) ||
-        (testX == preX + 1 && testY == preY - 1))){
-            hitVertical = true;
+        if((mapLayout[(testY+1) * cols + testX] == 1 || mapLayout[(testY - 1) * cols + testX] == 1) &&
+        ((testX == preX + 1 && testY == preY + 1) ||  // Top Left
+        (testX == preX - 1 && testY == preY - 1) ||   // Bottom Right
+        (testX == preX - 1 && testY == preY + 1) ||   // Top Right
+        (testX == preX + 1 && testY == preY - 1))){   // Bottom Left
+          hitVertical = true;
         }
+
+        if ((testX == preX + 1 && testY == preY - 1) && mapLayout[(testY-1) * cols + testX] == 1
+        && mapLayout[testY * cols + testX - 1] == 1){
+          hitVertical = false;
+        }
+        if ((testX == preX - 1 && testY == preY - 1) && mapLayout[(testY-1) * cols + testX] == 1
+        && mapLayout[testY * cols + testX + 1] == 1){
+          hitVertical = false;
+        }
+        if ((testX == preX + 1 && testY == preY + 1) && mapLayout[(testY+1) * cols + testX] == 1
+        && mapLayout[testY * cols + testX - 1] == 1){
+          hitVertical = false;
+        }
+        if ((testX == preX - 1 && testY == preY + 1) && mapLayout[(testY+1) * cols + testX] == 1
+        && mapLayout[testY * cols + testX + 1] == 1){
+          hitVertical = false;
+        }
+
       } else {
         // record current wall for next extension of our ray
         preX = testX;
