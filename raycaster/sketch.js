@@ -212,9 +212,9 @@ function draw() {
   background(255);
   move();
   castRays();
-  drawMap();
-  drawPlayer();
-  drawRays();
+  //drawMap();
+  //drawPlayer();
+  //drawRays();
 
   playerAngle -= mouseIsPressed ? ((mouseX - width / 2) / width) * 2 : 0;
   document.body.style.cursor = mouseIsPressed ? 'none' : 'auto';
