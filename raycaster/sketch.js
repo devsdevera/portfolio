@@ -18,6 +18,7 @@ function windowResized() {
 
 let rows = 20;
 let cols = 20;
+let map = false;
 let mapWidth, gap, cubeSize;
 
 const mapLayout = [ // the map array. Edit to change level but keep the outer walls
@@ -56,15 +57,16 @@ function drawMap(){
   }
 }
 
-function mouseClicked() {
-  // Calculate row and column based on mouse coordinates
-  let col = floor((mouseX - gap) / cubeSize);
-  let row = floor((mouseY - mapWidth) / cubeSize);
-  
+function mousePressed() {
   // Calculate the index in the mapLayout array
   if (mouseX >= 0 && mouseX < mapWidth && mouseY >= mapWidth && mouseY < height) {
+    map = true;
+    let col = floor((mouseX - gap) / cubeSize);
+    let row = floor((mouseY - mapWidth) / cubeSize);
     let index = row * cols + col;
     mapLayout[index] = mapLayout[index] == 0 ? 1 : 0;
+  }else{
+    map = false;
   }
 }
 
@@ -212,11 +214,10 @@ function draw() {
   background(255);
   move();
   castRays();
-  //drawMap();
-  //drawPlayer();
+  drawMap();
+  drawPlayer();
   //drawRays();
-
-  playerAngle -= mouseIsPressed ? ((mouseX - width / 2) / width) * 2 : 0;
-  document.body.style.cursor = mouseIsPressed ? 'none' : 'auto';
+  playerAngle -= mouseIsPressed && !map? ((mouseX - width / 2) / width) * 2 : 0;
+  document.body.style.cursor = mouseIsPressed && !map? 'none' : 'auto';
   turnPlayer(playerAngle);
 }
