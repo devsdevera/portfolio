@@ -1,5 +1,4 @@
 // ---------------------------- SETUP --------------------------------
-
 function setup() {
   createCanvas(windowWidth, windowWidth / 2);
   frameRate(60);
@@ -10,16 +9,16 @@ function setup() {
   playerY = (4 / rows) * mapWidth;
   noStroke();
 }
-
 function windowResized() {
   setup()
 }
 // ---------------------------- MAP --------------------------------
-
 let rows = 20, cols = 20;
 let mapWidth, gap, cubeSize;
 let mapSize = 4;
 let mapClicked = false;
+let buttonOne = '#e0e0e0';
+let buttonTwo = '#ffffff';
 
 const mapLayout = [ // the map array. Edit to change level but keep the outer walls
   1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
@@ -65,22 +64,39 @@ function mousePressed() {
     let row = floor((mouseY - mapWidth) / cubeSize);
     let index = row * cols + col;
     mapLayout[index] = mapLayout[index] == 0 ? 1 : 0;
+  }else if (mouseX >= (gap * 10) && (mouseX < gap * 10 + height / 8) && 
+    mouseY >= ((gap * 10) + height / 2) && mouseY < ((gap * 10) + height / 2) + (gap * 10)){
+    mapClicked = true;
+    buttonOne = buttonOne == '#ffffff' ? '#e0e0e0' : '#ffffff';
+  }else if (mouseX >= (gap * 10) && (mouseX < gap * 10 + height / 8) && 
+    mouseY >= ((gap * 25) + height / 2) && mouseY < ((gap * 25) + height / 2) + (gap * 10)){
+    mapClicked = true;
+    buttonTwo = buttonTwo == '#ffffff' ? '#e0e0e0' : '#ffffff';
   }else{
     mapClicked = false;
   }
 }
 
-// ---------------------------- PLAYER --------------------------------
+function drawButtons(){
+  fill(buttonOne);
+  rect(gap * 10, (gap * 10) + height / 2, height / 8, (gap * 10));
+  fill(buttonTwo);
+  rect(gap * 10, (gap * 25) + height / 2, height / 8, (gap * 10));
+  fill(0);
+  text("", gap * 10, (gap * 10) + height / 2, height / 8, (gap * 10));
+  text("", gap * 10, (gap * 25) + height / 2, height / 8, (gap * 10));
+}
 
+// ---------------------------- PLAYER --------------------------------
 let playerX, playerY, playerDX, playerDY, playerAngle = 225;
-let wDown, sDown, aDown, dDown;
+let wDown, sDown, aDown, dDown, lDown, rDown;
 let prevX = 0, prevY = 0;
 let sensitivity = 0.1;
 
 function drawPlayer() {
   // Draw the direction pointer
-  fill(0);
-  circle(playerX, playerY + mapWidth, cubeSize); 
+  fill(255);
+  circle(playerX, playerY + mapWidth, cubeSize / 4); 
   stroke(255, 0, 0); // Set stroke color to red
   line(playerX, playerY + mapWidth, playerX + (playerDX * 30), playerY + (playerDY * 30) + mapWidth);
   noStroke();
@@ -100,6 +116,17 @@ function turnPlayer(playerAngle){
   playerDY = -Math.sin(degreesToRadians(playerAngle));
 }
 
+function lookAround(){
+  // ((mouseX - width / 2) / width) * 2
+  playerAngle -= lDown ? -0.75 : rDown ? 0.75 : 0;
+  playerAngle -= mouseIsPressed && !mapClicked && buttonTwo == '#ffffff'? (mouseX - prevX) * sensitivity : 0;
+  playerAngle -= mouseIsPressed && !mapClicked && buttonTwo == '#e0e0e0'? ((mouseX-width / 2) / width) * 4 : 0;
+  document.body.style.cursor = mouseIsPressed && !mapClicked? 'none' : 'auto';
+  prevX = mouseX;
+  prevY = mouseY;
+  turnPlayer(playerAngle);
+}
+
 function move(){
   let moveFactor = width / 900;
   playerX += wDown ? playerDX * moveFactor: 0;
@@ -112,25 +139,33 @@ function move(){
   playerY += dDown ? -Math.sin(degreesToRadians(fixAngle(playerAngle - 90))) * moveFactor / 2: 0;
 }
 function keyPressed() {
-  if (key === 'W' || key === 'w' || keyCode === UP_ARROW) {
+  if (key === 'W' || key === 'w') {
     wDown = true;
-  } else if (key === 'S' || key === 's' || keyCode === DOWN_ARROW) {
+  } else if (key === 'S' || key === 's') {
     sDown = true;
-  } else if (key === 'A' || key === 'a' || keyCode === LEFT_ARROW) {
+  } else if (key === 'A' || key === 'a') {
     aDown = true;
-  } else if (key === 'D' || key === 'd' || keyCode === UP_ARROW) {
+  } else if (key === 'D' || key === 'd') {
     dDown = true;
+  } else if (keyCode === LEFT_ARROW){
+    lDown = true;
+  } else if (keyCode === RIGHT_ARROW){
+    rDown = true;
   }
 }
 function keyReleased() {
-  if (key === 'W' || key === 'w' || keyCode === UP_ARROW) {
+  if (key === 'W' || key === 'w') {
     wDown = false;
-  } else if (key === 'S' || key === 's' || keyCode === DOWN_ARROW) {
+  } else if (key === 'S' || key === 's') {
     sDown = false;
-  } else if (key === 'A' || key === 'a' || keyCode === LEFT_ARROW) {
+  } else if (key === 'A' || key === 'a') {
     aDown = false;
-  } else if (key === 'D' || key === 'd' || keyCode === RIGHT_ARROW) {
+  } else if (key === 'D' || key === 'd') {
     dDown = false;
+  } else if (keyCode === LEFT_ARROW){
+    lDown = false;
+  } else if (keyCode === RIGHT_ARROW){
+    rDown = false;
   }
 }
 
@@ -139,6 +174,8 @@ let rays;
 function castRays(){
   rays = [];
   let resolution = 240;
+  fill('rgba(0, 150, 255, 1)');
+  rect(0, 0, width, height / 2);
   for (let count = 0, rayAngle = playerAngle + 30; rayAngle >= playerAngle - 30; 
     rayAngle -= (60 / resolution), count ++) {
     let rayX = playerX, rayY = playerY;
@@ -189,11 +226,8 @@ function castRays(){
     // Remove fisheye effect by adjusting the distance based on the ray's angle
     let correctedDistance = distanceToWall * Math.cos(degreesToRadians(fixAngle(playerAngle - rayAngle)));
     let stripHeight = ((gridWidth * 2) * ((gridWidth * 2) / (mapSize / 0.1))) / correctedDistance;
-
     fill(hitVertical ? 'rgba(150, 150, 150, 1)' : 'rgba(200, 200, 200, 1)');
     rect(0 + (count * rayWidth) - rayWidth, (gridWidth) - (stripHeight / 2), rayWidth + 1, stripHeight);
-    fill('rgba(0, 150, 255, 1)');
-    rect(0 + (count * rayWidth) - rayWidth, 0, rayWidth + 1, (gridWidth) - stripHeight / 2);
 
     let ray = [];
     ray.push(playerX);
@@ -216,14 +250,11 @@ function draw() {
   background(255);
   move();
   castRays();
-  drawMap();
-  drawPlayer();
-  drawRays();
-
-  // ((mouseX - width / 2) / width) * 2
-  playerAngle -= mouseIsPressed && !mapClicked? (mouseX - prevX) * sensitivity : 0;
-  document.body.style.cursor = mouseIsPressed && !mapClicked? 'none' : 'auto';
-  prevX = mouseX;
-  prevY = mouseY;
-  turnPlayer(playerAngle);
+  if(buttonOne == '#ffffff'){
+    drawMap();
+    drawPlayer();
+    drawRays();
+  }
+  drawButtons();
+  lookAround();
 }
