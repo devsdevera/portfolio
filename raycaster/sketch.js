@@ -128,7 +128,7 @@ function lookAround(){
 }
 
 function move(){
-  let moveFactor = width / 900;
+  let moveFactor = width / 1500;
   playerX += wDown ? playerDX * moveFactor: 0;
   playerY += wDown ? playerDY * moveFactor: 0;
   playerX -= sDown ? playerDX * moveFactor: 0;
