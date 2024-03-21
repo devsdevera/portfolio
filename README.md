@@ -9,7 +9,7 @@ My Python program implements a decision tree algorithm for binary classification
 
 ## Usage
 
-1. open up a command line of your choice
+1. Open up a command line of your choice
 2. Navigate to the directory `part2` containing my `DecisionTree.py` program
 3. `part2` also contains `rtg_A.csv` `rtg_B.csv` `rtg_C.csv`
 4. Execute the following commands (copy and paste):
@@ -19,6 +19,8 @@ My Python program implements a decision tree algorithm for binary classification
 `python DecisionTree.py rtg_B.csv output.txt`  
 
 `python DecisionTree.py rtg_C.csv output.txt`  
+
+5. `part2`contains my Decision Tree output files `DT_A.txt` `DT_B.txt` `DT_C.txt`
 
 ## Requirements
 
