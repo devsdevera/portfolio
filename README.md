@@ -2,6 +2,8 @@
 
 This program implements the k-nearest neighbors (kNN) algorithm for classification. Given a training dataset (wine_train.csv) and a test dataset (wine_test.csv), it calculates the Euclidean distance between each test instance and all training instances. It selects the k-nearest neighbors, and predicts a class label by majority vote. The program outputs the predicted classes alongside the distances to the k-nearest neighbors for all test instances into a CSV file. Finally, the program evaluates accuracy by comparing predicted class with true class.
 
+**IMPORTANT: I conduct min-max normalization**
+
 ## Author
 
 - Emmanuel De Vera
@@ -29,8 +31,8 @@ This program implements the k-nearest neighbors (kNN) algorithm for classificati
 
 `python kNN.py wine_test.csv wine_train.csv output.csv 1`      
 
-5. My program should print the accuracy % followed by the prediction table
-6. My program also generates `output.csv` containing the prediction table
+5. My program should print the accuracy % followed by the output prediction table
+6. My program also generates `output.csv` containing the output prediction table
 7. `part1` contains my output files `knn3_test.csv` `knn1_test.csv` `knn3_train.csv` `knn1_train.csv`
 
 ## Requirements
