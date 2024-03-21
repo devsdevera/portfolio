@@ -21,7 +21,7 @@ Replace `<train_csv_file>` with the path to the CSV file containing the training
 
 Example:
 
-python DecisionTree.py rtg_A.csv output.txt
+`python DecisionTree.py rtg_A.csv output.txt`
 
 ## Requirements
 
