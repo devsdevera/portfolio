@@ -14,9 +14,9 @@ This Python program implements a decision tree algorithm for binary classificati
 3. `part2` also contains `rtg_A.csv` `rtg_B.csv` `rtg_C.csv`
 4. Execute the following commands (copy and paste):
 
-`python DecisionTree.py rtg_A.csv output.txt`
-`python DecisionTree.py rtg_B.csv output.txt`
-`python DecisionTree.py rtg_C.csv output.txt`
+`python DecisionTree.py rtg_A.csv output.txt`  
+`python DecisionTree.py rtg_B.csv output.txt`  
+`python DecisionTree.py rtg_C.csv output.txt`  
 
 ## Requirements
 
