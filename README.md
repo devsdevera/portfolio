@@ -1,6 +1,6 @@
-# Decision Trees
+# k-Nearest Neighbors (kNN) Classifier
 
-My Python program implements a decision tree algorithm for binary classification. It builds a decision tree based on the provided datasets and classifies instances into one of two classes (0 or 1). The decision tree is grown recursively, splitting the data based on the feature that maximizes information gain at each step. The resulting tree structure is written to an output file (output.txt), including information about information gain and entropy at each node. Finally, the accuracy of the constructed tree is computed and printed.
+This program implements the k-nearest neighbors (kNN) algorithm for classification. Given a training dataset (wine_train.csv) and a test dataset (wine_test.csv), it calculates the Euclidean distance between each test sample and all training samples, selects the k-nearest neighbors, and assigns the class label by majority voting. The program outputs the predicted class labels for the test samples along with their corresponding distances to the nearest neighbors into a CSV file (output.csv). The value of k, determining the number of neighbors considered, is specified as a command-line argument. Finally, the program evaluates the accuracy of the classification and prints the results.
 
 ## Author
 
