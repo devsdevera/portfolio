@@ -2,6 +2,11 @@
 
 This Python script implements a decision tree classifier using information gain as the splitting criterion. The decision tree is grown recursively using a depth-first approach.
 
+## Author
+
+- Emmanuel De Vera
+- Student: Deveremma 300602434
+
 ## Usage
 
 1. Clone this repository or download the `kNN.py` file.
@@ -24,8 +29,5 @@ python DecisionTree.py rtg_A.csv output.txt
 - pandas
 - numpy
 
-## Author
 
-- Emmanuel De Vera
-- Student: Deveremma 300602434
 
