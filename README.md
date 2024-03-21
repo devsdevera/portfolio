@@ -15,7 +15,7 @@ This program implements the k-nearest neighbors (kNN) algorithm for classificati
 3. `part1` contains datasets `wine_test.csv` `wine_train.csv`
 4. Execute the following commands (copy and paste):
 
-Using the Train set
+**Using the Train set**
 
 `python kNN.py wine_train.csv wine_test.csv output.csv 3`  
 
@@ -23,7 +23,7 @@ Using the Train set
 
 `python kNN.py wine_train.csv wine_test.csv output.csv 90`    
 
-Using the Test set
+**Using the Test set**
 
 `python kNN.py wine_test.csv wine_train.csv output.csv 3`  
 
