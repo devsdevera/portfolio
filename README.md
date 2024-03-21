@@ -1,6 +1,6 @@
 # k-Nearest Neighbors (kNN) Classifier
 
-This program implements the k-nearest neighbors (kNN) algorithm for classification. Given a training dataset (wine_train.csv) and a test dataset (wine_test.csv), it calculates the Euclidean distance between each test sample and all training samples, selects the k-nearest neighbors, and assigns the class label by majority voting. The program outputs the predicted class labels for the test samples along with their corresponding distances to the nearest neighbors into a CSV file (output.csv). Finally, the program evaluates the accuracy of the classification and prints the results.
+This program implements the k-nearest neighbors (kNN) algorithm for classification. Given a training dataset (wine_train.csv) and a test dataset (wine_test.csv), it calculates the Euclidean distance between each test instance and all training instances. It selects the k-nearest neighbors, and predicts a class label by majority vote. The program outputs the predicted classes alongside the distances to the k-nearest neighbors for all test instances into a CSV file (output.csv). Finally, the program evaluates accuracy by comparing predicted class with true class.
 
 ## Author
 
