@@ -37,7 +37,7 @@ This program implements the k-nearest neighbors (kNN) algorithm for classificati
 
 ## Requirements
 
-- collections
+- collections > Counter
 - pandas
 - numpy
 - sys
