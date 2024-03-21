@@ -1,4 +1,4 @@
-# COMP307: Decision Trees
+# Decision Trees
 
 My Python program implements a decision tree algorithm for binary classification. It builds a decision tree based on the provided datasets and classifies instances into one of two classes (0 or 1). The decision tree is grown recursively, splitting the data based on the feature that maximizes information gain at each step. The resulting tree structure is written to an output file (output.txt), including information about information gain and entropy at each node. Finally, the accuracy of the constructed tree is computed and printed.
 
@@ -28,3 +28,4 @@ My Python program implements a decision tree algorithm for binary classification
 - Python 3.x
 - pandas
 - numpy
+- sys
