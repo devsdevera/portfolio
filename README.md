@@ -21,13 +21,12 @@ My Python program implements a decision tree algorithm for binary classification
 
 `python DecisionTree.py rtg_C.csv output.txt`  
 
-5. My program should print the decision tree and the accuracy %
+5. My program should print the decision tree followed by accuracy %
 6. My program also generates `output.txt` containing the decision tree
 7. `part2` contains my DT output files `DT_A.txt` `DT_B.txt` `DT_C.txt`
 
 ## Requirements
 
-- Python 3.x
 - pandas
 - numpy
 - sys
